@@ -1,17 +1,4 @@
-type Tour = {
-  tourId: number
-  tourName: string
-  tourDate: string
-  tourCity: string
-  tourCountry: string
-}
-
-type Artist = {
-  id: number
-  name: string
-  bio: string
-  tours: Tour[]
-}
+import { Artist } from '../types'
 
 export const artists: Artist[] = [
   {
