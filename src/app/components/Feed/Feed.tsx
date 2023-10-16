@@ -1,5 +1,7 @@
+'use client'
 import { Artist, FeedType } from '@/app/types'
-import { FeedArtistsList, FeedHeader } from './partials'
+import { FeedArtistsList, FeedHeader, FeedLayoutOptions } from './partials'
+import { useState } from 'react'
 
 type FeedProps = {
   artists: Artist[]
@@ -8,12 +10,19 @@ type FeedProps = {
 
 export const Feed = (props: FeedProps) => {
   const { artists, header } = props
+  const [layoutOption, setLayoutOption] = useState('grid-cols-3')
+
+  const handleLayoutChange = (option: string) => () => {
+    setLayoutOption(option)
+  }
 
   return (
     <section className='border text-center'>
       <FeedHeader header={header} />
 
-      <FeedArtistsList artists={artists} />
+      <FeedLayoutOptions onLayoutChange={handleLayoutChange} />
+
+      <FeedArtistsList artists={artists} layout={layoutOption} />
     </section>
   )
 }

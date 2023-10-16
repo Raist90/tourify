@@ -2,12 +2,13 @@ import { Artist } from '@/app/types'
 
 type ArtistsListProps = {
   artists: Artist[]
+  layout: string
 }
 
 export const FeedArtistsList = (props: ArtistsListProps) => {
-  const { artists } = props
+  const { artists, layout } = props
   return (
-    <section className='grid grid-cols-3 gap-4 text-left'>
+    <section className={`grid ${layout} gap-4 text-left`}>
       {artists.map((artist) => (
         <article className='border grid gap-2' key={artist.id}>
           <div className='border'>
