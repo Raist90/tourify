@@ -11,4 +11,5 @@ export type Artist = {
   name: string
   bio: string
   tours: Tour[]
+  featured?: boolean
 }

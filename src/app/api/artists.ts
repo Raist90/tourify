@@ -5,6 +5,7 @@ export const artists: Artist[] = [
     id: 1,
     name: 'Artist 1',
     bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    featured: true,
     tours: [
       {
         tourId: 1,
@@ -19,6 +20,7 @@ export const artists: Artist[] = [
     id: 2,
     name: 'Artist 2',
     bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    featured: true,
     tours: [
       {
         tourId: 2,
@@ -33,6 +35,7 @@ export const artists: Artist[] = [
     id: 3,
     name: 'Artist 3',
     bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    featured: true,
     tours: [
       {
         tourId: 3,
@@ -82,6 +85,48 @@ export const artists: Artist[] = [
         tourDate: '2024-06-06',
         tourCity: 'City 6',
         tourCountry: 'Country 6',
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: 'Artist 7',
+    bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    tours: [
+      {
+        tourId: 7,
+        tourName: 'Tour 7',
+        tourDate: '2024-07-07',
+        tourCity: 'City 7',
+        tourCountry: 'Country 7',
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Artist 8',
+    bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    tours: [
+      {
+        tourId: 8,
+        tourName: 'Tour 8',
+        tourDate: '2024-08-08',
+        tourCity: 'City 8',
+        tourCountry: 'Country 8',
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: 'Artist 9',
+    bio: 'Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.',
+    tours: [
+      {
+        tourId: 9,
+        tourName: 'Tour 9',
+        tourDate: '2024-09-09',
+        tourCity: 'City 9',
+        tourCountry: 'Country 9',
       },
     ],
   },

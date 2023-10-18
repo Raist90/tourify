@@ -13,14 +13,14 @@ export const FeedLayoutOptions = (props: FeedLayoutProps) => {
 
   return (
     <div className='border grid grid-cols-3 w-max inline-block mx-auto gap-2 rounded p-2'>
-      <button onClick={onLayoutChange('grid-cols-3')}>
+      <button title='griglia 3x3' onClick={onLayoutChange('grid-cols-3')}>
         <Grid3x3 />
       </button>
-      <button onClick={onLayoutChange('grid-cols-2')}>
+      <button title='griglia 2x2' onClick={onLayoutChange('grid-cols-2')}>
         <Grid2X2 />
       </button>
       {/** @todo Make this a list instead of a grid */}
-      <button onClick={onLayoutChange('grid-cols-1')}>
+      <button title='lista' onClick={onLayoutChange('grid-cols-1')}>
         <Square />
       </button>
     </div>
