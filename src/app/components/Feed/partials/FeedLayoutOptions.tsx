@@ -1,18 +1,15 @@
 import { Grid2X2, Grid3x3, Square } from 'lucide-react'
 
 type FeedLayoutProps = {
-  hidden: boolean
   onLayoutChange: (option: string) => () => void
 }
 
 /** @todo Make sure to handle `disabled` status on buttons when already selected */
 export const FeedLayoutOptions = (props: FeedLayoutProps) => {
-  const { hidden, onLayoutChange } = props
-
-  if (hidden) return
+  const { onLayoutChange } = props
 
   return (
-    <div className='border grid grid-cols-3 w-max inline-block mx-auto gap-2 rounded p-2'>
+    <div className='hidden border sm:grid grid-cols-3 w-max mx-auto gap-2 rounded p-2'>
       <button title='griglia 3x3' onClick={onLayoutChange('grid-cols-3')}>
         <Grid3x3 />
       </button>

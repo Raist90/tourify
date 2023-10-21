@@ -17,7 +17,7 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
             <p className='text-xs'>{artist.bio}</p>
           </div>
           {artist.tours.map((tour) => (
-            <div className='grid gap-2' key={tour.tourId}>
+            <div className='grid gap-2 text-center' key={tour.tourId}>
               <h4>{tour.tourName}</h4>
               <div className='border grid grid-cols-3'>
                 <span>{tour.tourDate}</span>
