@@ -1,25 +1,33 @@
 import { Grid2X2, Grid3x3, Square } from 'lucide-react'
+import { LayoutOptionType } from '..'
 
 type FeedLayoutProps = {
-  onLayoutChange: (option: string) => () => void
+  focus: LayoutOptionType['key']
+  onLayoutChange: (option: LayoutOptionType['key']) => () => void
 }
 
-/** @todo Make sure to handle `disabled` status on buttons when already selected */
+const layoutOptions: LayoutOptionType[] = [
+  { key: 'grid-cols-3', title: 'griglia 3x3', icon: <Grid3x3 /> },
+  { key: 'grid-cols-2', title: 'griglia 2x2', icon: <Grid2X2 /> },
+  /** @todo Make this a list instead of a grid */
+  { key: 'grid-cols-1', title: 'lista', icon: <Square /> },
+]
+
 export const FeedLayoutOptions = (props: FeedLayoutProps) => {
-  const { onLayoutChange } = props
+  const { focus, onLayoutChange } = props
 
   return (
-    <div className='hidden border sm:grid grid-cols-3 w-max mx-auto gap-2 rounded p-2'>
-      <button title='griglia 3x3' onClick={onLayoutChange('grid-cols-3')}>
-        <Grid3x3 />
-      </button>
-      <button title='griglia 2x2' onClick={onLayoutChange('grid-cols-2')}>
-        <Grid2X2 />
-      </button>
-      {/** @todo Make this a list instead of a grid */}
-      <button title='lista' onClick={onLayoutChange('grid-cols-1')}>
-        <Square />
-      </button>
+    <div className='hidden border lg:grid grid-cols-3 w-max mx-auto gap-2 rounded p-2'>
+      {layoutOptions.map(({ key, title, icon }) => (
+        <button
+          className={focus === key ? 'ring' : ''}
+          title={title}
+          onClick={onLayoutChange(key)}
+          key={key}
+        >
+          {icon}
+        </button>
+      ))}
     </div>
   )
 }
