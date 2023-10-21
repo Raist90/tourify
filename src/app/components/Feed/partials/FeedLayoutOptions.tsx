@@ -20,7 +20,7 @@ export const FeedLayoutOptions = (props: FeedLayoutProps) => {
     <div className='hidden border lg:grid grid-cols-3 w-max mx-auto gap-2 rounded p-2'>
       {layoutOptions.map(({ key, title, icon }) => (
         <button
-          className={focus === key ? 'ring' : ''}
+          className={focus === key ? 'ring-2 ring-violet-500' : ''}
           title={title}
           onClick={onLayoutChange(key)}
           key={key}

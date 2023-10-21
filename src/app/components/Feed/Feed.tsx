@@ -31,7 +31,7 @@ export const Feed = (props: FeedProps) => {
         focus={layoutOption}
       />
 
-      <FeedArtistsList artists={artists} layout={layoutOption} />
+      <FeedArtistsList artists={artists} gridLayout={layoutOption} />
     </section>
   )
 }
