@@ -23,7 +23,7 @@ export const Feed = (props: FeedProps) => {
   }
 
   return (
-    <section className='border text-center'>
+    <section className='text-center'>
       <FeedHeader header={header} />
 
       <FeedLayoutOptions

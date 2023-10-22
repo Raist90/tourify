@@ -16,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={dmMono.className}>{children}</body>
+      <body className={`${dmMono.className} text-white bg-neutral-950`}>
+        {children}
+      </body>
     </html>
   )
 }

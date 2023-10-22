@@ -14,23 +14,20 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
     <section className={`grid ${gridLayout} gap-4 text-left ${gridWidth}`}>
       {artists.map((artist) => (
         /** @todo Make this an `ArtistCard` component */
-        <article className='border grid gap-2' key={artist.id}>
-          <div className='border'>
-            <h3
-              className={
-                gridLayout === 'grid-cols-1' ? 'lg:text-left' : 'text-center'
-              }
-            >
-              {artist.name}{' '}
-            </h3>
+        <article
+          className='grid gap-2 hover:shadow-lg hover:shadow-violet-400/40'
+          key={artist.id}
+        >
+          <div className='grid gird-rows-2 gap-2'>
+            <h3>{artist.name}</h3>
             <p className='text-xs'>{artist.bio}</p>
           </div>
           {artist.tours.map((tour) => (
             <div className='grid gap-2' key={tour.tourId}>
               <h4>{tour.tourName}</h4>
-              <div className='border grid grid-cols-2 text-xs'>
+              <div className='grid grid-cols-2 text-xs'>
                 <span>{tour.tourDate}</span>
-                <div className='grid grid-cols-1'>
+                <div className='grid grid-cols-1 text-right'>
                   <span>
                     {tour.tourCity}, {tour.tourCountry}
                   </span>
@@ -39,7 +36,7 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
             </div>
           ))}
           {artist.featured && (
-            <span className='border text-xs font-bold text-yellow-300'>
+            <span className='text-xs font-bold text-yellow-300'>
               Sponsorizzato
             </span>
           )}
