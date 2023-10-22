@@ -8,6 +8,9 @@ import { createTRPCRouter } from '@/server/api/trpc'
  */
 export const appRouter = createTRPCRouter({
   feed: sanityRouter,
+  homepage: sanityRouter,
+  page: sanityRouter,
+  settings: sanityRouter,
 })
 
 // export type definition of API

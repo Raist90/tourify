@@ -4,3 +4,10 @@ export type FeedType = {
     text: string
   }
 }
+
+export type HomepageType = {
+  homepage: {
+    title: string
+    slug: string
+  }
+}

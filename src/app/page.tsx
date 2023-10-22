@@ -1,18 +1,17 @@
-import { artists, feedQuery } from './api'
+import { getFeed, getHomepage } from '@/helpers/serverHelpers'
+import { artists } from './api'
 import { Feed } from './components'
 import { FeedType } from './types'
-import { api } from '@/trpc/server'
 
 const HomePage = async () => {
-  const { header }: Awaited<FeedType> = await api.feed.byQuery.query({
-    query: feedQuery,
-  })
+  const { header }: Awaited<FeedType> = await getFeed()
+  const { title } = await getHomepage()
 
   return (
-    <div>
-      <div>Home Page</div>
+    <>
+      <div>{title}</div>
       <Feed artists={artists} header={header} />
-    </div>
+    </>
   )
 }
 
