@@ -1,6 +1,8 @@
+import { TRPCReactProvider } from '@/trpc/react'
 import './globals.css'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
+import { headers } from 'next/headers'
 
 const dmMono = DM_Mono({ weight: '400', style: 'normal', subsets: ['latin'] })
 
@@ -17,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${dmMono.className} text-white bg-neutral-950`}>
-        {children}
+        <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
       </body>
     </html>
   )

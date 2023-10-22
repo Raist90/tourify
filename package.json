@@ -11,12 +11,19 @@
   "dependencies": {
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.18.0",
+    "@tanstack/react-query": "^4.36.1",
+    "@trpc/client": "^10.41.0",
+    "@trpc/next": "^10.41.0",
+    "@trpc/react-query": "^10.41.0",
+    "@trpc/server": "^10.41.0",
     "lucide-react": "^0.287.0",
     "next": "13.5.4",
     "next-sanity": "^4.3.3",
     "react": "^18",
     "react-dom": "^18",
-    "sanity": "^3.18.0"
+    "sanity": "^3.18.0",
+    "superjson": "^2.0.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",

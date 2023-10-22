@@ -1,3 +1,4 @@
+'use client'
 import { Newspaper } from 'lucide-react'
 import { defineField, defineType } from 'sanity'
 
