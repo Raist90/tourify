@@ -1,5 +1,7 @@
 import { Artist } from '@/app/types'
-import { LayoutOptionType } from '..'
+import { LayoutOptionType } from '../..'
+import { ActionsPanel } from './partials'
+import Image from 'next/image'
 
 type ArtistsListProps = {
   artists: Artist[]
@@ -15,7 +17,7 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
       {artists.map((artist) => (
         /** @todo Make this an `ArtistCard` component */
         <article
-          className='grid gap-2 hover:shadow-lg hover:shadow-violet-400/40'
+          className='grid gap-2 hover:border hover:m-[-1px]'
           key={artist.id}
         >
           <div className='grid gird-rows-2 gap-2'>
@@ -33,10 +35,26 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
                   </span>
                 </div>
               </div>
+
+              {/** @todo Put this on a separate `component` */}
+              <div className='relative w-full h-[300px]'>
+                <Image
+                  className='object-cover'
+                  src={artist.cover}
+                  alt={artist.name}
+                  fill={true}
+                  sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                  quality={75}
+                  placeholder='blur'
+                  blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
+                />
+              </div>
+
+              <ActionsPanel />
             </div>
           ))}
           {artist.featured && (
-            <span className='text-xs font-bold text-yellow-300'>
+            <span className='text-xs font-bold text-yellow-500'>
               Sponsorizzato
             </span>
           )}

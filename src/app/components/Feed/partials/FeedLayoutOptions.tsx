@@ -7,10 +7,10 @@ type FeedLayoutProps = {
 }
 
 const layoutOptions: LayoutOptionType[] = [
-  { key: 'grid-cols-3', title: 'griglia 3x3', icon: <Grid3x3 /> },
-  { key: 'grid-cols-2', title: 'griglia 2x2', icon: <Grid2X2 /> },
+  { key: 'grid-cols-3', title: 'Griglia 3x3', icon: <Grid3x3 /> },
+  { key: 'grid-cols-2', title: 'Griglia 2x2', icon: <Grid2X2 /> },
   /** @todo Make this a list instead of a grid */
-  { key: 'grid-cols-1', title: 'lista', icon: <Square /> },
+  { key: 'grid-cols-1', title: 'Lista', icon: <Square /> },
 ]
 
 export const FeedLayoutOptions = (props: FeedLayoutProps) => {

@@ -1,6 +1,6 @@
 import { Artist } from '../types'
 
-export const artists: Artist[] = [
+const artistsWithoutImages: Omit<Artist, 'cover'>[] = [
   {
     id: 1,
     name: 'Artist 1',
@@ -131,3 +131,20 @@ export const artists: Artist[] = [
     ],
   },
 ]
+
+/** @description Add a random unsplash image for all artists */
+const unsplashImages = [
+  'https://source.unsplash.com/1600x900/?concert',
+  'https://source.unsplash.com/1600x900/?music',
+  'https://source.unsplash.com/1600x900/?band',
+  'https://source.unsplash.com/1600x900/?guitar',
+  'https://source.unsplash.com/1600x900/?drums',
+  'https://source.unsplash.com/1600x900/?musician',
+]
+
+export const artists: Artist[] = artistsWithoutImages.map((artist) => {
+  return {
+    ...artist,
+    cover: unsplashImages[Math.floor(Math.random() * unsplashImages.length)],
+  }
+})

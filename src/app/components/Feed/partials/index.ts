@@ -1,3 +1,3 @@
-export * from './FeedArtistsList'
+export * from './FeedArtistList'
 export * from './FeedHeader'
 export * from './FeedLayoutOptions'
