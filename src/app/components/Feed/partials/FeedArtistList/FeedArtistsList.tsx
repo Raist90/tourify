@@ -20,7 +20,7 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
           className='grid gap-2 hover:border hover:m-[-1px]'
           key={artist.id}
         >
-          <div className='grid gird-rows-2 gap-2'>
+          <div className='grid grid-rows-2 items-center gap-2'>
             <h3>{artist.name}</h3>
             <p className='text-xs'>{artist.bio}</p>
           </div>
