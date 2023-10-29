@@ -17,7 +17,7 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
       {artists.map((artist) => (
         /** @todo Make this an `ArtistCard` component */
         <article
-          className='grid gap-2 hover:border hover:m-[-1px]'
+          className='grid gap-2 self-baseline hover:border hover:m-[-1px]'
           key={artist.id}
         >
           <div className='grid grid-rows-2 items-center gap-2'>
