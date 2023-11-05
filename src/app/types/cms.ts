@@ -1,3 +1,5 @@
+/** @todo Make sure to find a valid architectural solution for this file */
+
 export type FeedType = {
   header: {
     title: string

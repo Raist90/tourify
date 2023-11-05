@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
+import { Navigation } from './components'
 
 /** I don't know why but for some reason `Next` renders a fallback font when not setting `preload: false`
  *
@@ -28,6 +29,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${dmMono.className} text-white bg-neutral-950`}>
+        {/* <Navigation>
+          <Navigation.Primary />
+          <Navigation.Secondary />
+        </Navigation> */}
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
       </body>
     </html>

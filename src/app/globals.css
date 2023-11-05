@@ -7,15 +7,13 @@
   border-color: rgb(115 115 115 / var(--tw-border-opacity));
 }
 
-article {
-  padding: 1rem;
-}
-
-header {
+article,
+header,
+main,
+nav {
   padding: 1rem;
 }
 
 section {
-  padding: 1rem;
   margin-bottom: 1rem;
 }

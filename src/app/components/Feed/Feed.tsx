@@ -23,7 +23,7 @@ export const Feed = (props: FeedProps) => {
   }
 
   return (
-    <section className='text-center'>
+    <section className='text-center grid gap-6'>
       <FeedHeader header={header} />
 
       <FeedLayoutOptions

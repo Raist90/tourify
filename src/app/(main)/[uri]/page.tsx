@@ -1,5 +1,5 @@
 import { api } from '@/trpc/server'
-import { pageQuery } from '../api'
+import { pageQuery } from '../../api'
 
 type PageParamsType = {
   params: {

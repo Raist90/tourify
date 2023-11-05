@@ -9,6 +9,7 @@ import { createTRPCRouter } from '@/server/api/trpc'
 export const appRouter = createTRPCRouter({
   feed: sanityRouter,
   homepage: sanityRouter,
+  navigation: sanityRouter,
   page: sanityRouter,
   settings: sanityRouter,
 })
