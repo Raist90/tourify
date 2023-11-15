@@ -4,7 +4,7 @@ import { deskTool } from 'sanity/desk'
 
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
-import { defaultDocumentNode } from '~/helpers'
+import { defaultDocumentNode } from '~sanity/helpers'
 
 export default defineConfig({
   basePath: '/studio',

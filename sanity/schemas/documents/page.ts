@@ -1,7 +1,10 @@
 'use client'
 import { FileText } from 'lucide-react'
 import { defineField, defineType } from 'sanity'
-import { isUniqueAcrossAllDocuments } from '~/helpers'
+import { isUniqueAcrossAllDocuments } from '~sanity/helpers'
+import * as blocks from '~sanity/schemas/blocks'
+
+const allBlocks = Object.values(blocks)
 
 export const page = defineType({
   name: 'page',
@@ -26,6 +29,12 @@ export const page = defineType({
         isUnique: isUniqueAcrossAllDocuments,
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'blocks',
+      title: 'Blocks',
+      type: 'array',
+      of: allBlocks,
     }),
   ],
 })

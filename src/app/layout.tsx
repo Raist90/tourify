@@ -3,17 +3,16 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
-import { Navigation } from './components'
 
 /** I don't know why but for some reason `Next` renders a fallback font when not setting `preload: false`
  *
- * @todo Figure out why this is happening. Could be because of my actual slow internet connection
+ * @todo This happens when wifi connection is slow, I will keep this for reference 
  */
 const dmMono = DM_Mono({
   weight: '400',
   style: 'normal',
   subsets: ['latin'],
-  preload: false,
+  // preload: false,
 })
 
 export const metadata: Metadata = {
@@ -29,10 +28,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${dmMono.className} text-white bg-neutral-950`}>
-        {/* <Navigation>
-          <Navigation.Primary />
-          <Navigation.Secondary />
-        </Navigation> */}
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
       </body>
     </html>

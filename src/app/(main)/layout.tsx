@@ -13,7 +13,7 @@ export default async function MainLayout({
     navigation: { primary },
   }: Awaited<NavigationType> = await getNavigation()
   return (
-    <main className='grid gap-6'>
+    <main className='grid'>
       <Navigation>
         <Navigation.Primary navigationItems={primary} />
       </Navigation>

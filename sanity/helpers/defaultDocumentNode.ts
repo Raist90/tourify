@@ -1,10 +1,10 @@
 import type { SanityDocument } from 'sanity'
 import Iframe from 'sanity-plugin-iframe-pane'
 import type { DefaultDocumentNodeResolver } from 'sanity/desk'
-import { getPreviewUrl } from '~/helpers/getPreviewUrl'
+import { getPreviewUrl } from '~sanity/helpers'
 
 /** @description Here all the documents we want to preview */
-const allowedSchemaTypes = ['page']
+const allowedSchemaTypes = ['feed', 'page']
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   S,
