@@ -1,5 +1,8 @@
 import { ComponentType } from "react"
+import { PortableText } from "@portabletext/react"
 import type { TextBlock } from '@/types/blocks'
+
+
 
 export const Text: ComponentType<TextBlock> = ({ renderTitle, title, text }) => {
   return (
@@ -8,7 +11,7 @@ export const Text: ComponentType<TextBlock> = ({ renderTitle, title, text }) => 
         <h2 className="text-2xl">{title}</h2>
       )
       }
-      <p>{text}</p>
+      <PortableText value={text} />
     </section>
   )
 }

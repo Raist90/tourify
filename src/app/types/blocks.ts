@@ -1,3 +1,5 @@
+import { TypedObject } from "sanity"
+
 export type BaseBlock = {
   id: string
   name: string
@@ -7,6 +9,6 @@ export type BaseBlock = {
 export type TextBlock = BaseBlock & {
   renderTitle: boolean
   title: string
-  text: string
+  text: TypedObject[]
 }
 

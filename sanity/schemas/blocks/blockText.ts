@@ -21,10 +21,10 @@ const fields = [
   defineField({
     name: 'text',
     title: 'Text',
-    type: 'text',
-    description: 'This is the text of the block',
+    type: 'array',
+    of: [{ type: 'block' }],
     validation: (Rule) => Rule.required(),
-  }),
+  })
 ]
 
 export const blockText = defineField({
@@ -33,11 +33,18 @@ export const blockText = defineField({
       title: 'title',
       text: 'text',
     },
-    prepare({ title, text }) {
+    /** @todo Make sure to properly type this */
+    prepare({ title, text }: { title: string, text: { _type: string, children: { text: string }[] }[] }) {
+      /** @todo Move this into an external function */
+      const formattedText = text
+        .filter((block) => block._type === 'block')
+        .map((block) => block.children.map((child) => child.text).join(''))
+        .join('\n')
+
       return {
         title: 'Text Block',
         subtitle:
-          title && text ? `${title} - ${text}` : `Missing title or text`,
+          title && formattedText ? `${title} - ${formattedText}` : `Missing title or text`,
       }
     },
   },
