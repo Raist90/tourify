@@ -1,8 +1,8 @@
+import { headers } from 'next/headers'
 import { getNavigation } from '@/helpers/serverHelpers'
 import { TRPCReactProvider } from '@/trpc/react'
-import { headers } from 'next/headers'
-import { Navigation } from '../components'
-import { NavigationType } from '../components/Navigation/NavigationProps'
+import { Navigation } from '@/components'
+import { NavigationType } from '@/components/Navigation/NavigationProps'
 
 export default async function MainLayout({
   children,

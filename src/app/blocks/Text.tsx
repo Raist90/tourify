@@ -1,5 +1,5 @@
 import { ComponentType } from "react"
-import type { TextBlock } from '~types/blocks'
+import type { TextBlock } from '@/types/blocks'
 
 export const Text: ComponentType<TextBlock> = ({ renderTitle, title, text }) => {
   return (

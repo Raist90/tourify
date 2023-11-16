@@ -1,4 +1,4 @@
-import { navigationQuery } from '@/app/api'
+import { navigationQuery } from '@/api'
 import { api } from '@/trpc/server'
 
 export const getNavigation = async () => {

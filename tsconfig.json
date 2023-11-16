@@ -19,10 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "~helpers/": ["./src/helpers/*"],
+      "@/*": ["./src/*", "./src/app/*"],
       "~sanity/*": ["./sanity/*"],
-      "~types/*": ["./src/app/types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

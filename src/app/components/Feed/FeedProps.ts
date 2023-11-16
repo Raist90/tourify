@@ -1,4 +1,4 @@
-import { Artist, FeedType } from '@/app/types'
+import { Artist, FeedType } from '@/types'
 
 export type FeedProps = {
   artists: Artist[]

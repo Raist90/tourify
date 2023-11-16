@@ -1,4 +1,4 @@
-import * as allBlocks from './blocks'
+import * as allBlocks from '../blocks'
 import { capitalize } from '@/helpers/serverHelpers/capitalize'
 
 export const blocksQuery = Object.entries(allBlocks)

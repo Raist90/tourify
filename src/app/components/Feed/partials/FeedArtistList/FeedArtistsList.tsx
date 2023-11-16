@@ -1,7 +1,7 @@
-import { Artist } from '@/app/types'
+import Image from 'next/image'
+import { Artist } from '@/types'
 import { LayoutOptionType } from '../..'
 import { ActionsPanel } from './partials'
-import Image from 'next/image'
 
 type ArtistsListProps = {
   artists: Artist[]

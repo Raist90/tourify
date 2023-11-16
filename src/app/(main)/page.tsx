@@ -1,7 +1,7 @@
 import { getFeed, getHomepage } from '@/helpers/serverHelpers'
-import { artists } from '../api'
-import { Feed } from '../components'
-import { FeedType } from '../types'
+import { artists } from '@/api'
+import { Feed } from '@/components'
+import { FeedType } from '@/types'
 
 const HomePage = async () => {
   const { header }: Awaited<FeedType> = await getFeed()

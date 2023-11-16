@@ -1,7 +1,6 @@
 import { api } from '@/trpc/server'
-import { pageQuery } from '../../api'
-/** @todo Make this import like this: `@/blocks` */
-import * as blockComponents from '../../blocks'
+import { pageQuery } from '@/api'
+import * as blockComponents from '@/blocks'
 import { blockRenderer } from '@/helpers/serverHelpers'
 
 type PageParamsType = {

@@ -1,4 +1,4 @@
-import { FeedType } from '@/app/types'
+import { FeedType } from '@/types'
 
 type FeedHeaderProps = {
   header: FeedType['header']

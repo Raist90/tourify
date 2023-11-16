@@ -1,5 +1,5 @@
-import { feedQuery } from '@/app/api'
-import type { FeedType } from '@/app/types'
+import { feedQuery } from '@/api'
+import type { FeedType } from '@/types'
 import { api } from '@/trpc/server'
 
 export const getFeed = async () => {

@@ -1,4 +1,4 @@
-import { blocksQuery } from '../..'
+import { blocksQuery } from "../../partials";
 
 export const pageFieldsQuery = `
   title,

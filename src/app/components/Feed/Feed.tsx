@@ -1,6 +1,6 @@
 'use client'
-import { FeedArtistsList, FeedHeader, FeedLayoutOptions } from './partials'
 import { useEffect, useState } from 'react'
+import { FeedArtistsList, FeedHeader, FeedLayoutOptions } from './partials'
 import { useWindowSize } from '@/helpers/clientHelpers'
 import { FeedProps, LayoutOptionType } from '.'
 
