@@ -13,3 +13,15 @@ export type HomepageType = {
     slug: string
   }
 }
+
+/** @todo `Name` will probably be a discriminated union lately  */
+export type Block = {
+  name: 'Text'
+  data: any
+}
+
+/** @todo Make sure to type `blocks` */
+export type PageType = {
+  title: string
+  blocks: Block[]
+}

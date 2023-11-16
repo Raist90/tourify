@@ -1,10 +1,5 @@
 import { ComponentType, createElement } from 'react'
-
-/** @todo Make sure to properly type this when you add blocks */
-type Block = {
-  name: 'Text'
-  data: any
-}
+import { Block } from '@/app/types'
 
 /** @todo Make sure to properly type this when you add `types/blocks` */
 type Modules = {
