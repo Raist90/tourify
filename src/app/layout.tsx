@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${dmMono.className} text-white bg-neutral-950`}>
+      <body className={`${dmMono.className} text-white bg-neutral-900`}>
         <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
       </body>
     </html>

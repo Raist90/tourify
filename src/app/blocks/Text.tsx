@@ -2,8 +2,6 @@ import { ComponentType } from "react"
 import { PortableText } from "@portabletext/react"
 import type { TextBlock } from '@/types/blocks'
 
-
-
 export const Text: ComponentType<TextBlock> = ({ renderTitle, title, text }) => {
   return (
     <section className="grid gap-2">

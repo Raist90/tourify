@@ -34,23 +34,24 @@ export const blockText = defineField({
       text: 'text',
     },
     /** @todo Make sure to properly type this */
-    prepare({ title, text }: { title: string, text: { _type: string, children: { text: string }[] }[] }) {
+    prepare({ title, text }) {
+      if (!title || !text) return { title: 'Missing title or text' }
+
       /** @todo Move this into an external function */
       const formattedText = text
-        .filter((block) => block._type === 'block')
-        .map((block) => block.children.map((child) => child.text).join(''))
-        .join('\n')
+        .filter((block: Record<string, any>) => block._type === 'block')
+        .map((block: Record<string, any>) => block.children.map((child: Record<string, any>) => child.text).join(''))
+        .join('\n') || 'Missing title or text'
 
       return {
         title: 'Text Block',
-        subtitle:
-          title && formattedText ? `${title} - ${formattedText}` : `Missing title or text`,
+        subtitle: `${title} - ${formattedText}`,
       }
     },
   },
   icon: CaseSensitive,
   name: 'blockText',
-  title: 'Title',
+  title: 'Text Block',
   type: 'object',
-  fields: [...fields],
+  fields
 })
