@@ -37,6 +37,14 @@ export const blockImage = defineField({
       title: 'image.alt',
       media: 'image',
     },
+    prepare({ title, media }) {
+      if (!title || !media) return { title: 'Missing alt tag or media' }
+      return {
+        title: 'Image Block',
+        media: media,
+        subtitle: title,
+      }
+    }
   },
   icon: Image,
   name: 'blockImage',
