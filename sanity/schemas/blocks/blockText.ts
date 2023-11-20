@@ -1,6 +1,7 @@
 'use client'
 import { CaseSensitive } from 'lucide-react'
 import { defineField } from 'sanity'
+import { formatPreviewText } from '~sanity/helpers'
 
 const fields = [
   defineField({
@@ -33,19 +34,12 @@ export const blockText = defineField({
       title: 'title',
       text: 'text',
     },
-    /** @todo Make sure to properly type this */
     prepare({ title, text }) {
       if (!title || !text) return { title: 'Missing title or text' }
 
-      /** @todo Move this into an external function */
-      const formattedText = text
-        .filter((block: Record<string, any>) => block._type === 'block')
-        .map((block: Record<string, any>) => block.children.map((child: Record<string, any>) => child.text).join(''))
-        .join('\n') || 'Missing title or text'
-
       return {
         title: 'Text Block',
-        subtitle: `${title} - ${formattedText}`,
+        subtitle: `${title} - ${formatPreviewText(text)}`,
       }
     },
   },

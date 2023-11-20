@@ -1,9 +1,8 @@
 import { ComponentType } from "react";
 import { ImageBlock } from "../types";
-import NextImage from "next/image";
 import { Media } from "../components";
 
-export const Image: ComponentType<ImageBlock> = ({ caption, image, renderCaption }) => {
+export const Image: ComponentType<ImageBlock> = ({ caption, image }) => {
   return (
     <section className="grid gap-3">
       <picture className="relative h-[400px] lg:h-[700px]">

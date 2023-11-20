@@ -3,5 +3,5 @@ export const blockTextQuery = `
   title,
   renderTitle,
   'type': _type,
-  text,
+  text
 `
