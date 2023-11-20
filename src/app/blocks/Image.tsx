@@ -4,7 +4,7 @@ import { Media } from "../components";
 
 export const Image: ComponentType<ImageBlock> = ({ caption, image }) => {
   return (
-    <section className="grid gap-3">
+    <section className="flex flex-col gap-3">
       <picture className="relative h-[400px] lg:h-[700px]">
         <Media image={image} />
       </picture>
