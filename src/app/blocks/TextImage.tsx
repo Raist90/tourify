@@ -1,8 +1,8 @@
-import { ComponentType } from "react";
-import type { TextImageBlock } from "@/types/blocks";
-import { Text } from "./Text";
+import { ComponentType } from 'react'
+import type { TextImageBlock } from '@/types/blocks'
+import { Text } from './Text'
 /** @description Here we rename the `Image` component to `ImageBlock` because `eslint` is stupid and thinks there's no `alt` tag even if the type of `image` is inferred correctly and actually contains an `alt` prop */
-import { Image as ImageBlock } from "./Image";
+import { Image as ImageBlock } from './Image'
 
 export const TextImage: ComponentType<TextImageBlock> = ({
   caption,
@@ -13,18 +13,19 @@ export const TextImage: ComponentType<TextImageBlock> = ({
   text,
   imagePosition,
   type,
-  id
+  id,
 }) => {
   /** @todo I need to find a better solution to provide `ìds` here because I want them to be unique */
   const imageBlockProps = { caption, renderCaption, image, type, id }
   const textBlockProps = { renderTitle, title, text, type, id }
   const renderOrder = (renderIndex: string) => {
-    if (renderIndex === 'right') return (
-      <>
-        <Text {...textBlockProps} isTextSticky />
-        <ImageBlock {...imageBlockProps} />
-      </>
-    )
+    if (renderIndex === 'right')
+      return (
+        <>
+          <Text {...textBlockProps} isTextSticky />
+          <ImageBlock {...imageBlockProps} />
+        </>
+      )
     return (
       <>
         <ImageBlock {...imageBlockProps} />
@@ -35,7 +36,7 @@ export const TextImage: ComponentType<TextImageBlock> = ({
 
   return (
     <>
-      <section className="grid md:grid-cols-2 gap-6">
+      <section className='grid md:grid-cols-2 gap-6'>
         {renderOrder(imagePosition)}
       </section>
     </>

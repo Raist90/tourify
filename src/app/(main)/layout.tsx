@@ -16,6 +16,7 @@ export default async function MainLayout({
     <main className='grid'>
       <Navigation>
         <Navigation.Primary navigationItems={primary} />
+        <Navigation.Secondary />
       </Navigation>
       <TRPCReactProvider headers={headers()}>{children}</TRPCReactProvider>
     </main>

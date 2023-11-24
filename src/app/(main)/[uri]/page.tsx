@@ -19,7 +19,7 @@ const SanityPage = async ({ params }: PageParamsType) => {
       <div>{title}</div>
 
       <div className='grid gap-3'>
-        {blocksData && (blockRenderer(blocksData, blockComponents))}
+        {blocksData && blockRenderer(blocksData, blockComponents)}
       </div>
     </div>
   )
