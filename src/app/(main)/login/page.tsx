@@ -1,22 +1,15 @@
-"use client";
-import { signIn } from "next-auth/react";
-
-const handleGithubLogin = () => {
-  signIn("github", { callbackUrl: "http://localhost:3000/homepage" });
-}
+'use client'
+import { useAuthHandlers } from '@/helpers/clientHelpers'
 
 export default function LoginPage() {
+  const { handleGithubLogin } = useAuthHandlers()
   return (
-    <section className="login">
+    <section className='login'>
       <div>
-        <h2>
-          Login
-        </h2>
+        <h2>Login</h2>
         <h3>Sign in to your account</h3>
-        <button onClick={handleGithubLogin}>
-          Sign in with Github
-        </button>
+        <button onClick={handleGithubLogin}>Sign in with Github</button>
       </div>
     </section>
-  );
+  )
 }
