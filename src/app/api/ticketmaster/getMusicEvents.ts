@@ -1,10 +1,13 @@
 import { removeArrayDuplicates } from '@/helpers/serverHelpers'
 import type { TicketmasterResponseType } from '@/app/types'
 import { ticketmasterFormatter } from './ticketmasterFormatter'
+import { SERVER_ENV } from '@/app/env/server'
 
-const ticketMasterUrl = process.env.TICKETMASTER_API
-const apiKey = process.env.TICKETMASTER_API_KEY
-const lastFMUrl = process.env.LASTFM_API
+const ticketMasterUrl = SERVER_ENV.TICKETMASTER_API
+const apiKey = SERVER_ENV.TICKETMASTER_API_KEY
+
+/** @todo Add LastFM API to get artist images */
+// const lastFMUrl = process.env.LASTFM_API
 
 export const getMusicEvents = async () => {
   const url = `${ticketMasterUrl}/events?apikey=${apiKey}&locale=it-it&size=18&segmentId=KZFzniwnSyZfZ7v7nJ&countryCode=IT`
