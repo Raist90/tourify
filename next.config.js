@@ -18,7 +18,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.sanity.io',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 's1.ticketm.net',
+      },
     ],
   },
 }

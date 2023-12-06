@@ -1,16 +1,16 @@
-type Tour = {
-  tourId: number
-  tourName: string
-  tourDate: string
-  tourCity: string
-  tourCountry: string
+type Artist = {
+  id: string
+  name: string
+  bio?: string
 }
 
-export type Artist = {
+export type Tour = {
   id: number
   name: string
-  bio: string
-  tours: Tour[]
-  featured?: boolean
+  date: string | string[]
+  city: string | string[]
+  country: string | string[]
+  artists: Artist[]
   cover: string
+  featured?: boolean
 }

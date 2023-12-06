@@ -1,15 +1,16 @@
 import { getFeed, getHomepage } from '@/helpers/serverHelpers'
-import { artists } from '@/api'
 import { Feed } from '@/components'
 import { FeedType } from '@/types'
+import { getMusicEvents } from '../api/ticketmaster'
 
 const HomePage = async () => {
   const { header }: Awaited<FeedType> = await getFeed()
   const { title } = await getHomepage()
+  const tours = await getMusicEvents()
 
   return (
     <>
-      <Feed artists={artists} header={header} />
+      <Feed tours={tours} header={header} />
     </>
   )
 }

@@ -1,7 +1,7 @@
-import { Artist, FeedType } from '@/types'
+import { FeedType, Tour } from '@/types'
 
 export type FeedProps = {
-  artists: Artist[]
+  tours: Tour[]
   header: FeedType['header']
 }
 

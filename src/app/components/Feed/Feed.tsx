@@ -5,7 +5,7 @@ import { useWindowSize } from '@/helpers/clientHelpers'
 import { FeedProps, LayoutOptionType } from '.'
 
 export const Feed = (props: FeedProps) => {
-  const { artists, header } = props
+  const { tours, header } = props
   const [layoutOption, setLayoutOption] =
     useState<LayoutOptionType['key']>('grid-cols-1')
 
@@ -31,7 +31,7 @@ export const Feed = (props: FeedProps) => {
         focus={layoutOption}
       />
 
-      <FeedArtistsList artists={artists} gridLayout={layoutOption} />
+      <FeedArtistsList tours={tours} gridLayout={layoutOption} />
     </section>
   )
 }
