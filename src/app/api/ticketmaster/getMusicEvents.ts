@@ -1,19 +1,13 @@
 import { removeArrayDuplicates } from '@/helpers/serverHelpers'
 import type { TicketmasterResponseType } from '@/app/types'
 import { ticketmasterFormatter } from './ticketmasterFormatter'
-import { SERVER_ENV } from '@/app/env/server'
-
-const ticketMasterUrl = SERVER_ENV.TICKETMASTER_API
-const apiKey = SERVER_ENV.TICKETMASTER_API_KEY
-
-/** @todo Add LastFM API to get artist images */
-// const lastFMUrl = process.env.LASTFM_API
+import { api } from '@/trpc/server'
 
 export const getMusicEvents = async () => {
-  const url = `${ticketMasterUrl}/events?apikey=${apiKey}&locale=it-it&size=18&segmentId=KZFzniwnSyZfZ7v7nJ&countryCode=IT`
-  const rawEvents = await fetch(url)
-
-  const response: Awaited<TicketmasterResponseType> = await rawEvents.json()
+  /** @todo Not sure why `response` is typed as `unknown` here and not as `any` */
+  const response = (await api.musicEvents.bySearch.query({
+    keyword: '',
+  })) as unknown as Awaited<TicketmasterResponseType>
 
   const events = ticketmasterFormatter(response._embedded.events)
 

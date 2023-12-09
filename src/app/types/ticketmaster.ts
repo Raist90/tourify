@@ -1,42 +1,41 @@
-type Image = {
-  width: number
-  url: string
-}
+import z from 'zod'
 
-type Dates = {
-  start: {
-    localDate: string
-  }
-}
+export const ticketmasterSchema = z.object({
+  _embedded: z.object({
+    events: z.array(
+      z.object({
+        _embedded: z.object({
+          attractions: z.array(
+            z.object({
+              id: z.string(),
+              name: z.string(),
+            }),
+          ),
+          venues: z.array(
+            z.object({
+              city: z.object({
+                name: z.string(),
+              }),
+              name: z.string(),
+            }),
+          ),
+        }),
+        id: z.string(),
+        images: z.array(
+          z.object({
+            width: z.number(),
+            url: z.string(),
+          }),
+        ),
+        name: z.string(),
+        dates: z.object({
+          start: z.object({
+            localDate: z.string(),
+          }),
+        }),
+      }),
+    ),
+  }),
+})
 
-/** @description Attraction is the artist */
-type Attraction = {
-  id: string
-  name: string
-}
-
-/** @description Venue is the event location */
-type Venue = {
-  city: {
-    name: string
-  }
-  /** @description This is the building name where the event will take place */
-  name: string
-}
-
-type EventType = {
-  _embedded: {
-    attractions: Attraction[]
-    venues: Venue[]
-  }
-  id: string
-  images: Image[]
-  name: string
-  dates: Dates
-}
-
-export type TicketmasterResponseType = {
-  _embedded: {
-    events: EventType[]
-  }
-}
+export type TicketmasterResponseType = z.infer<typeof ticketmasterSchema>

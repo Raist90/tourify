@@ -1,4 +1,4 @@
-import { sanityRouter } from './routes'
+import { sanityRouter, ticketmasterRouter } from './routes'
 import { createTRPCRouter } from '@/server/api/trpc'
 
 /**
@@ -13,6 +13,7 @@ export const appRouter = createTRPCRouter({
   navigation: sanityRouter,
   page: sanityRouter,
   settings: sanityRouter,
+  musicEvents: ticketmasterRouter,
 })
 
 // export type definition of API
