@@ -1,37 +1,14 @@
 'use client'
-import { useEffect, useState } from 'react'
-import { FeedArtistsList, FeedHeader, FeedLayoutOptions } from './partials'
-import { useWindowSize } from '@/helpers/clientHelpers'
-import { FeedProps, LayoutOptionType } from '.'
+import { FeedArtistsList, FeedHeader } from './partials'
+import { FeedProps } from '.'
+import type { ComponentType } from 'react'
 
-export const Feed = (props: FeedProps) => {
-  const { tours, header } = props
-  const [layoutOption, setLayoutOption] =
-    useState<LayoutOptionType['key']>('grid-cols-1')
-
-  const [width] = useWindowSize()
-
-  useEffect(() => {
-    /** @todo Create a `breakpoints` object */
-    const isMobile = width < 1024 ? true : false
-    /** @todo The only problem with this is that `layoutOption` will always return `grid-cols-1` after resizing from mobile to tablet or desktop */
-    setLayoutOption(isMobile ? 'grid-cols-1' : layoutOption)
-  }, [layoutOption, width])
-
-  const handleLayoutChange = (option: LayoutOptionType['key']) => () => {
-    setLayoutOption(option)
-  }
-
+export const Feed: ComponentType<FeedProps> = ({ header, tours }) => {
   return (
     <section className='text-center grid gap-6'>
       <FeedHeader header={header} />
 
-      <FeedLayoutOptions
-        onLayoutChange={handleLayoutChange}
-        focus={layoutOption}
-      />
-
-      <FeedArtistsList tours={tours} gridLayout={layoutOption} />
+      <FeedArtistsList tours={tours} />
     </section>
   )
 }
