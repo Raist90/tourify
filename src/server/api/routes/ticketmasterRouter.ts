@@ -20,7 +20,7 @@ export const ticketmasterRouter = createTRPCRouter({
         countryCode: 'IT',
         locale: 'it-it',
         segmentId: 'KZFzniwnSyZfZ7v7nJ',
-        size: 20,
+        size: 18,
       }
 
       const url = `${ticketMasterUrl}/events?apikey=${apiKey}&keyword=${keyword}&locale=${options.locale}&size=${options.size}&segmentId=${options.segmentId}&countryCode=${options.countryCode}`

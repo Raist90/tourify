@@ -20,10 +20,6 @@ export const FeedArtistsList = (props: ArtistsListProps) => {
           className='grid gap-2 self-end hover:border hover:m-[-1px]'
           key={tour.id}
         >
-          {/*<div className='grid grid-rows-2 items-center gap-2'>
-          <h3>{tour.name}</h3>
-          <p className='text-xs'>{tour.bio || 'Something'}</p>
-          </div> */}
           <div className='grid gap-2' key={tour.id}>
             <h3>{tour.name}</h3>
             {Array.isArray(tour.date) && tour.date.length > 1 ? (
