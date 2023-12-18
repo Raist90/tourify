@@ -5,7 +5,7 @@ type Artist = {
 }
 
 export type Tour = {
-  id: number
+  id: string
   name: string
   date: string | string[]
   city: string | string[]

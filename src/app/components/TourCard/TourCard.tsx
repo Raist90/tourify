@@ -1,6 +1,6 @@
 import type { Tour } from '@/app/types'
 import Image from 'next/image'
-import type { ComponentType } from 'react'
+import { Suspense, type ComponentType } from 'react'
 import { ActionsPanel } from './partials'
 
 type TourCardProps = {
@@ -47,7 +47,7 @@ export const TourCard: ComponentType<TourCardProps> = ({ tour }) => {
         {/** @todo Put this on a separate `component` */}
         <div className='relative w-full aspect-[16/9]'>
           <Image
-            className='object-cover rounded-sm'
+            className='object-cover rounded-lg'
             src={tour.cover}
             alt={tour.name}
             fill={true}

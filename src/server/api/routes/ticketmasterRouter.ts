@@ -12,18 +12,19 @@ export const ticketmasterRouter = createTRPCRouter({
     .input(
       z.object({
         keyword: z.string(),
+        page: z.number().optional(),
       }),
     )
     .query(async ({ input }) => {
-      const { keyword } = input
+      const { keyword, page = 0 } = input
       const options = {
         countryCode: 'IT',
         locale: 'it-it',
         segmentId: 'KZFzniwnSyZfZ7v7nJ',
-        size: 18,
+        size: 8,
       }
 
-      const url = `${ticketMasterUrl}/events?apikey=${apiKey}&keyword=${keyword}&locale=${options.locale}&size=${options.size}&segmentId=${options.segmentId}&countryCode=${options.countryCode}`
+      const url = `${ticketMasterUrl}/events?apikey=${apiKey}&keyword=${keyword}&locale=${options.locale}&size=${options.size}&segmentId=${options.segmentId}&countryCode=${options.countryCode}&page=${page}`
 
       try {
         const data = await fetch(url).then((res) => res.json())
