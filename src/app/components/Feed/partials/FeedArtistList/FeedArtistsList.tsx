@@ -10,17 +10,20 @@ type ArtistsListProps = {
   tours: Tour[]
 }
 
+/** @todo I need to rewrite this completely by fetching data only clientside */
 export const FeedArtistsList: ComponentType<ArtistsListProps> = ({ tours }) => {
   const [page, setPage] = useState(1)
   const [isLoading, setIsLoading] = useState(false)
   const [list, setList] = useState<Tour[]>(tours)
 
-  const moreTours = api.musicEvents.bySearch.useQuery({ keyword: '', page })
+  const moreTours = api.musicEvents.bySearch.useQuery({
+    keyword: '',
+    page,
+  })
 
-  const handleLoadMore = () => {
+  const handleLoadMore = async () => {
     setIsLoading(true)
     setPage(page + 1)
-    if (!moreTours) return
     const {
       _embedded: { events },
     } = moreTours.data as TicketmasterResponseType
