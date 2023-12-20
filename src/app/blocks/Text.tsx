@@ -1,8 +1,7 @@
-import { ComponentType } from 'react'
 import { PortableText } from '@portabletext/react'
 import type { TextBlock } from '@/types/blocks'
 
-export const Text: ComponentType<TextBlock> = ({
+export const Text: React.FC<TextBlock> = ({
   renderTitle,
   title,
   text,

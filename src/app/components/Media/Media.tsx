@@ -1,9 +1,8 @@
 'use client'
-import NextImage from "next/image";
-import type { ComponentType } from "react";
-import type { MediaProps } from ".";
+import NextImage from 'next/image'
+import type { MediaProps } from '.'
 
-export const Media: ComponentType<MediaProps> = ({ image }) => {
+export const Media: React.FC<MediaProps> = ({ image }) => {
   return (
     <NextImage
       className='object-cover'

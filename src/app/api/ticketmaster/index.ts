@@ -1,1 +1,1 @@
-export * from './getMusicEvents'
+export * from './ticketmasterFormatter'

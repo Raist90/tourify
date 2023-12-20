@@ -1,13 +1,12 @@
 import type { Tour } from '@/app/types'
 import Image from 'next/image'
-import { Suspense, type ComponentType } from 'react'
 import { ActionsPanel } from './partials'
 
 type TourCardProps = {
   tour: Tour
 }
 
-export const TourCard: ComponentType<TourCardProps> = ({ tour }) => {
+export const TourCard: React.FC<TourCardProps> = ({ tour }) => {
   return (
     <article
       className='grid gap-2 self-end hover:border hover:m-[-1px]'

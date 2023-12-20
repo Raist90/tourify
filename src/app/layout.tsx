@@ -6,7 +6,7 @@ import './globals.css'
 
 /** I don't know why but for some reason `Next` renders a fallback font when not setting `preload: false`
  *
- * @todo This happens when wifi connection is slow, I will keep this for reference 
+ * @todo This happens when wifi connection is slow, I will keep this for reference
  */
 const dmMono = DM_Mono({
   weight: '400',

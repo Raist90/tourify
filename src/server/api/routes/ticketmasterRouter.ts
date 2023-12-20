@@ -2,6 +2,7 @@ import { z } from 'zod'
 import { createTRPCRouter, publicProcedure } from '@/server/api/trpc'
 import { SERVER_ENV } from '@/app/env/server'
 import { ticketmasterSchema } from '@/app/types'
+import { ticketmasterFormatter } from '@/app/api/ticketmaster/'
 
 const ticketMasterUrl = SERVER_ENV.TICKETMASTER_API
 const apiKey = SERVER_ENV.TICKETMASTER_API_KEY
@@ -26,15 +27,15 @@ export const ticketmasterRouter = createTRPCRouter({
 
       const url = `${ticketMasterUrl}/events?apikey=${apiKey}&keyword=${keyword}&locale=${options.locale}&size=${options.size}&segmentId=${options.segmentId}&countryCode=${options.countryCode}&page=${page}`
 
-      try {
-        const data = await fetch(url).then((res) => res.json())
+      const data = await fetch(url).then((res) => res.json())
 
-        const response = ticketmasterSchema.parse(data)
+      /** @todo Add a proper error handling and change this to `safeParse` */
+      const response = ticketmasterSchema.parse(data)
 
-        return response
-      } catch (error) {
-        console.error(error)
-        return error
-      }
+      const {
+        _embedded: { events },
+      } = response
+
+      return ticketmasterFormatter(events)
     }),
 })

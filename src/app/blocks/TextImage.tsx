@@ -1,10 +1,9 @@
-import { ComponentType } from 'react'
 import type { TextImageBlock } from '@/types/blocks'
 import { Text } from './Text'
 /** @description Here we rename the `Image` component to `ImageBlock` because `eslint` is stupid and thinks there's no `alt` tag even if the type of `image` is inferred correctly and actually contains an `alt` prop */
 import { Image as ImageBlock } from './Image'
 
-export const TextImage: ComponentType<TextImageBlock> = ({
+export const TextImage: React.FC<TextImageBlock> = ({
   caption,
   image,
   renderCaption,
