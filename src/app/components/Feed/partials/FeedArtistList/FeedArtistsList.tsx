@@ -56,15 +56,17 @@ export const FeedArtistsList: React.FC<ArtistsListProps> = ({
           <p>No results found</p>
         </div>
       )}
-      <div className='text-center'>
-        <button
-          aria-busy={isLoading}
-          onClick={handleLoadMore}
-          disabled={isLoading}
-        >
-          Load More
-        </button>
-      </div>
+      {status !== 'error' && (
+        <div className='text-center'>
+          <button
+            aria-busy={isLoading}
+            onClick={handleLoadMore}
+            disabled={isLoading}
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </>
   )
 }

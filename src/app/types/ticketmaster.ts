@@ -1,5 +1,6 @@
 import z from 'zod'
 
+/** @todo This is unused for now. Figure out what to do */
 export const ticketmasterSchema = z.object({
   _embedded: z.object({
     events: z.array(

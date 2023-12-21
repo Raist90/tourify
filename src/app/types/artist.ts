@@ -1,16 +1,22 @@
-type Artist = {
-  id: string
-  name: string
-  bio?: string
-}
+import z from 'zod'
 
-export type Tour = {
-  id: string
-  name: string
-  date: string | string[]
-  city: string | string[]
-  country: string | string[]
-  artists: Artist[]
-  cover: string
-  featured?: boolean
-}
+const artist = z.object({
+  id: z.string(),
+  name: z.string(),
+  bio: z.string().optional(),
+})
+
+const tour = z.object({
+  id: z.string(),
+  name: z.string(),
+  date: z.string(),
+  city: z.string(),
+  country: z.string(),
+  artists: z.array(artist),
+  cover: z.string(),
+  featured: z.boolean().optional(),
+})
+
+export type Tour = z.infer<typeof tour>
+
+export const tourSchema = z.array(tour)

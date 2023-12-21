@@ -7,7 +7,6 @@ export const NavigationComponent = ({
 }: {
   children: React.ReactNode
 }) => {
-  /** @todo Change this style to grid-cols-2 when you're ready to implement `secondary` navigation */
   return <div className='grid grid-cols-2'>{children}</div>
 }
 
