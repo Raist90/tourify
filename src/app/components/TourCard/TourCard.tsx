@@ -1,6 +1,7 @@
 import type { Tour } from '@/app/types'
 import Image from 'next/image'
 import { ActionsPanel } from './partials'
+import Link from 'next/link'
 
 type TourCardProps = {
   tour: Tour
@@ -9,7 +10,7 @@ type TourCardProps = {
 export const TourCard: React.FC<TourCardProps> = ({ tour }) => {
   return (
     <article
-      className='grid gap-2 self-end hover:border hover:m-[-1px]'
+      className='grid gap-2 self-end hover:m-[-1px] hover:border'
       key={tour.id}
     >
       <div className='grid gap-2' key={tour.id}>
@@ -49,19 +50,26 @@ export const TourCard: React.FC<TourCardProps> = ({ tour }) => {
             className='object-cover rounded-lg'
             src={tour.cover}
             alt={tour.name}
-            fill={true}
+            fill
             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
             quality={75}
             placeholder='blur'
             blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII='
           />
         </div>
-
-        <ActionsPanel />
+        <Link
+          href={tour.url}
+          target='_blank'
+          className='font-extrabold text-center hover:text-yellow-500 hover:underline'
+        >
+          Buy it on Ticketmaster
+        </Link>
       </div>
 
+      <ActionsPanel />
+
       {tour.featured && (
-        <span className='text-xs font-bold text-yellow-500'>Sponsorizzato</span>
+        <span className='text-xs font-bold text-yellow-500'>Featured</span>
       )}
     </article>
   )

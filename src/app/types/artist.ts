@@ -15,6 +15,7 @@ const tour = z.object({
   artists: z.array(artist),
   cover: z.string(),
   featured: z.boolean().optional(),
+  url: z.string(),
 })
 
 export type Tour = z.infer<typeof tour>

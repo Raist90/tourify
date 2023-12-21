@@ -34,6 +34,7 @@ export const ticketmasterSchema = z.object({
             localDate: z.string(),
           }),
         }),
+        url: z.string(),
       }),
     ),
   }),
