@@ -1,8 +1,9 @@
 'use client'
 import type { Tour } from '@/types'
 import { TourCard } from '@/app/components/TourCard'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { api } from '@/trpc/react'
+import { Spinner } from '@/app/components/Spinner'
 
 type ArtistsListProps = {
   tours: Tour[]
@@ -34,13 +35,25 @@ export const FeedArtistsList: React.FC<ArtistsListProps> = ({
     refetch()
   }, [page, refetch])
 
-  const handleLoadMore = async () => {
+  const handleScroll = useCallback(async () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight ||
+      isLoading
+    ) {
+      return
+    }
     setIsLoading(true)
     setPage(page + 1)
     if (!loadedTours) return
     setList([...list, ...loadedTours])
     setIsLoading(false)
-  }
+  }, [isLoading, list, loadedTours, page])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
 
   return (
     <>
@@ -51,21 +64,13 @@ export const FeedArtistsList: React.FC<ArtistsListProps> = ({
           list.length &&
           list.map((tour) => <TourCard key={tour.id} tour={tour} />)}
       </section>
-      {!list && (
-        <div className='w-full mx-auto'>
-          <p>No results found</p>
-        </div>
-      )}
-      {status !== 'error' && (
-        <div className='text-center'>
-          <button
-            aria-busy={isLoading}
-            onClick={handleLoadMore}
-            disabled={isLoading}
-          >
-            Load More
-          </button>
-        </div>
+
+      {isLoading && status !== 'error' && <Spinner />}
+
+      {status === 'error' && (
+        <p className='text-center'>
+          No more events to show for the current query.
+        </p>
       )}
     </>
   )
