@@ -2,7 +2,7 @@
 
 import { SyntheticEvent } from 'react'
 
-const hardcodedRoute = '/tours/search?query='
+const hardcodedRoute = '/search?query='
 
 export const SearchBar = ({ ...styles }) => {
   const handleSubmit = (e: SyntheticEvent) => {
