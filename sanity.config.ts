@@ -1,10 +1,10 @@
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 
 import { apiVersion, dataset, projectId } from './sanity/env'
 import { schema } from './sanity/schema'
-import { defaultDocumentNode } from '~sanity/helpers'
+import { defaultDocumentNode } from '@/sanity/helpers'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
 export default defineConfig({
@@ -13,7 +13,7 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    deskTool({ defaultDocumentNode }),
+    structureTool({ defaultDocumentNode }),
     unsplashImageAsset(),
     visionTool({ defaultApiVersion: apiVersion }),
   ],

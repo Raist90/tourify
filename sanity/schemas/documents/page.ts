@@ -1,8 +1,8 @@
 'use client'
 import { FileText } from 'lucide-react'
 import { defineField, defineType } from 'sanity'
-import { isUniqueAcrossAllDocuments } from '~sanity/helpers'
-import * as blocks from '~sanity/schemas/blocks'
+import { isUniqueAcrossAllDocuments } from '@/sanity/helpers'
+import * as blocks from '@/sanity/schemas/blocks'
 
 const allBlocks = Object.values(blocks)
 

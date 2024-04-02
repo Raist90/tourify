@@ -1,7 +1,7 @@
 'use client'
 import { CaseSensitive } from 'lucide-react'
 import { defineField } from 'sanity'
-import { formatPreviewText } from '~sanity/helpers'
+import { formatPreviewText } from '@/sanity/helpers'
 
 const fields = [
   defineField({
@@ -25,7 +25,7 @@ const fields = [
     type: 'array',
     of: [{ type: 'block' }],
     validation: (Rule) => Rule.required(),
-  })
+  }),
 ]
 
 export const blockText = defineField({
@@ -47,5 +47,5 @@ export const blockText = defineField({
   name: 'blockText',
   title: 'Text Block',
   type: 'object',
-  fields
+  fields,
 })
