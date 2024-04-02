@@ -1,4 +1,3 @@
-'use client'
 import { CaseSensitive } from 'lucide-react'
 import { defineField } from 'sanity'
 import { formatPreviewText } from '@/sanity/helpers'

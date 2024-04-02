@@ -1,4 +1,3 @@
-'use client'
 import { Settings } from 'lucide-react'
 import { defineField, defineType } from 'sanity'
 

@@ -1,4 +1,3 @@
-'use client'
 import { defineField } from 'sanity'
 
 export const navigationItemFields = [

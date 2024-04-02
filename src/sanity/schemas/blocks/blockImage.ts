@@ -1,7 +1,6 @@
-'use client'
-import { Image } from "lucide-react"
-import { defineField } from "sanity"
-import { blockImageFields } from "./partials"
+import { Image } from 'lucide-react'
+import { defineField } from 'sanity'
+import { blockImageFields } from './partials'
 
 const fields = [
   /** @todo For some reason this is not required even if I set a validation rule, try to fix this with a custom validation rule */
@@ -10,9 +9,7 @@ const fields = [
     title: 'Image',
     type: 'image',
     description: 'This is the image of the block',
-    fields: [
-      ...blockImageFields,
-    ],
+    fields: [...blockImageFields],
   }),
   defineField({
     name: 'renderCaption',
@@ -20,7 +17,7 @@ const fields = [
     type: 'boolean',
     initialValue: false,
     description: 'Should the caption be rendered on the page?',
-    validation: (Rule) => Rule.required()
+    validation: (Rule) => Rule.required(),
   }),
   defineField({
     name: 'caption',
@@ -44,11 +41,11 @@ export const blockImage = defineField({
         media: media,
         subtitle: title,
       }
-    }
+    },
   },
   icon: Image,
   name: 'blockImage',
   title: 'Image',
   type: 'object',
-  fields
+  fields,
 })

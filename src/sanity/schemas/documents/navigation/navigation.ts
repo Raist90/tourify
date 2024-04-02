@@ -1,4 +1,3 @@
-'use client'
 import { Navigation } from 'lucide-react'
 import { defineField, defineType } from 'sanity'
 import { parentNavigationItem } from './partials/parentNavigationItem'

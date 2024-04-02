@@ -1,4 +1,3 @@
-'use client'
 import { Image } from 'lucide-react'
 import { defineField } from 'sanity'
 import { blockImage, blockText } from '.'

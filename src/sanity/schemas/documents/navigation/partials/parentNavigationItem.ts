@@ -1,4 +1,3 @@
-'use client'
 import { defineField } from 'sanity'
 import { navigationItemFields } from './navigationItemFields'
 import { navigationItem } from './navigationItem'
