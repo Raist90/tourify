@@ -38,6 +38,9 @@ export const ticketmasterSchema = z.object({
       }),
     ),
   }),
+  page: z.object({
+    totalPages: z.number(),
+  }),
 })
 
 export type TicketmasterResponseType = z.infer<typeof ticketmasterSchema>

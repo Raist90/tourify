@@ -34,10 +34,18 @@ export const ticketmasterRouter = createTRPCRouter({
       const embedded = data?._embedded || {}
       const events = embedded?.events || []
 
-      if (!events.length) return
+      if (!events.length)
+        return {
+          totalPages: 0,
+          tours: [],
+        }
 
       const eventsToFormat = ticketmasterFormatter(events)
-      const formattedEvents = tourSchema.parse(eventsToFormat)
-      return formattedEvents
+      const totalPages = data.page.totalPages
+
+      return {
+        totalPages,
+        tours: tourSchema.parse(eventsToFormat),
+      }
     }),
 })

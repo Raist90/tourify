@@ -6,49 +6,47 @@ import { api } from '@/trpc/react'
 import { Spinner } from '@/app/components/Spinner'
 
 type ArtistsListProps = {
+  totalPages: number
   tours: Tour[]
   keyword: string
 }
 
-/** @todo I need to make sure we don't fetch the first set of tours clientside because they are already available serverside */
 export const FeedArtistsList: React.FC<ArtistsListProps> = ({
+  totalPages,
   tours,
   keyword,
 }) => {
   const [page, setPage] = useState(1)
-  const [isLoading, setIsLoading] = useState(false)
   const [list, setList] = useState<Tour[]>(tours)
+  const isLastPage = page === totalPages
 
-  const {
-    data: loadedTours,
-    refetch,
-    status,
-  } = api.musicEvents.bySearch.useQuery(
+  const { data, refetch, isFetching } = api.musicEvents.bySearch.useQuery(
     {
       keyword: keyword || '',
       page,
     },
+    // we disable it initially because first results will be fetched serverside, then we store the next page result clientside and we render it only when the user scrolls to the bottom of the page, then we load next page in advance. In this way we get rid of loading times entirely
     { enabled: false },
   )
+  const { tours: loadedTours } = data || {}
 
   useEffect(() => {
-    refetch()
-  }, [page, refetch])
+    if (!isLastPage) refetch()
+  }, [isLastPage, page, refetch, totalPages])
 
   const handleScroll = useCallback(async () => {
     if (
       window.innerHeight + document.documentElement.scrollTop !==
         document.documentElement.offsetHeight ||
-      isLoading
+      isFetching ||
+      isLastPage
     ) {
       return
     }
-    setIsLoading(true)
     setPage(page + 1)
     if (!loadedTours) return
     setList([...list, ...loadedTours])
-    setIsLoading(false)
-  }, [isLoading, list, loadedTours, page])
+  }, [isFetching, isLastPage, list, loadedTours, page])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -65,9 +63,9 @@ export const FeedArtistsList: React.FC<ArtistsListProps> = ({
           list.map((tour) => <TourCard key={tour.id} tour={tour} />)}
       </section>
 
-      {isLoading && status !== 'error' && <Spinner />}
+      {isFetching && <Spinner />}
 
-      {status === 'error' && (
+      {isLastPage && (
         <p className='text-center'>
           No more events to show for the current query.
         </p>

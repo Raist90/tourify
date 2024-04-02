@@ -4,7 +4,9 @@ import { SearchBar } from '@/components/SearchBar'
 import { api } from '@/trpc/server'
 
 export const Feed: React.FC<FeedProps> = async ({ header, keyword }) => {
-  const tours = await api.musicEvents.bySearch.query({ keyword })
+  const { totalPages, tours } = await api.musicEvents.bySearch.query({
+    keyword,
+  })
 
   return (
     <>
@@ -13,9 +15,15 @@ export const Feed: React.FC<FeedProps> = async ({ header, keyword }) => {
 
         <SearchBar className='text-black inline-flex mx-auto' />
 
-        {!tours && <FeedNotFound />}
+        {!tours.length && <FeedNotFound />}
 
-        {tours && <FeedArtistsList tours={tours} keyword={keyword} />}
+        {tours.length > 0 && (
+          <FeedArtistsList
+            totalPages={totalPages}
+            tours={tours}
+            keyword={keyword}
+          />
+        )}
       </section>
     </>
   )
