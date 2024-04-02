@@ -2,7 +2,7 @@
 import NextImage from 'next/image'
 import type { MediaProps } from '.'
 
-export const Media: React.FC<MediaProps> = ({ image }) => {
+export const Media = ({ image }: MediaProps) => {
   return (
     <NextImage
       className='object-cover'

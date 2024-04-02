@@ -3,7 +3,7 @@ import { Text } from './Text'
 /** @description Here we rename the `Image` component to `ImageBlock` because `eslint` is stupid and thinks there's no `alt` tag even if the type of `image` is inferred correctly and actually contains an `alt` prop */
 import { Image as ImageBlock } from './Image'
 
-export const TextImage: React.FC<TextImageBlock> = ({
+export const TextImage = ({
   caption,
   image,
   renderCaption,
@@ -13,7 +13,7 @@ export const TextImage: React.FC<TextImageBlock> = ({
   imagePosition,
   type,
   id,
-}) => {
+}: TextImageBlock) => {
   /** @todo I need to find a better solution to provide `ìds` here because I want them to be unique */
   const imageBlockProps = { caption, renderCaption, image, type, id }
   const textBlockProps = { renderTitle, title, text, type, id }

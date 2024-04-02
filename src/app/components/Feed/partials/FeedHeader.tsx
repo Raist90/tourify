@@ -4,7 +4,7 @@ type FeedHeaderProps = {
   header: FeedType['header']
 }
 
-export const FeedHeader: React.FC<FeedHeaderProps> = ({ header }) => {
+export const FeedHeader = ({ header }: FeedHeaderProps) => {
   return (
     <header>
       <h2 className='text-2xl'>{header.title}</h2>

@@ -7,7 +7,7 @@ type TourCardProps = {
   tour: Tour
 }
 
-export const TourCard: React.FC<TourCardProps> = ({ tour }) => {
+export const TourCard = ({ tour }: TourCardProps) => {
   return (
     <article
       className='grid gap-2 self-end hover:m-[-1px] hover:border'

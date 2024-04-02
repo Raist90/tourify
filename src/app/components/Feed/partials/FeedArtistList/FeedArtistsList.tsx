@@ -11,11 +11,11 @@ type ArtistsListProps = {
   keyword: string
 }
 
-export const FeedArtistsList: React.FC<ArtistsListProps> = ({
+export const FeedArtistsList = ({
   totalPages,
   tours,
   keyword,
-}) => {
+}: ArtistsListProps) => {
   const [page, setPage] = useState(1)
   const [list, setList] = useState<Tour[]>(tours)
   const isLastPage = page === totalPages

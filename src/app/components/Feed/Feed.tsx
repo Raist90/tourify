@@ -1,9 +1,9 @@
 import { FeedArtistsList, FeedHeader, FeedNotFound } from './partials'
-import { FeedProps } from '.'
+import type { FeedProps } from '.'
 import { SearchBar } from '@/components/SearchBar'
 import { api } from '@/trpc/server'
 
-export const Feed: React.FC<FeedProps> = async ({ header, keyword }) => {
+export const Feed = async ({ header, keyword }: FeedProps) => {
   const { totalPages, tours } = await api.musicEvents.bySearch.query({
     keyword,
   })
