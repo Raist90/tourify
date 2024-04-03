@@ -1,15 +1,26 @@
-'use client'
-import { useAuthHandlers } from '@/helpers/clientHelpers'
+import { login, signup } from './actions'
 
 export default function LoginPage() {
-  const { handleGithubLogin } = useAuthHandlers()
   return (
-    <section className='login'>
-      <div>
-        <h2>Login</h2>
-        <h3>Sign in to your account</h3>
-        <button onClick={handleGithubLogin}>Sign in with Github</button>
-      </div>
-    </section>
+    <form>
+      <label htmlFor='email'>Email:</label>
+      <input
+        className='text-black'
+        id='email'
+        name='email'
+        type='email'
+        required
+      />
+      <label htmlFor='password'>Password:</label>
+      <input
+        className='text-black'
+        id='password'
+        name='password'
+        type='password'
+        required
+      />
+      <button formAction={login}>Log in</button>
+      <button formAction={signup}>Sign up</button>
+    </form>
   )
 }
