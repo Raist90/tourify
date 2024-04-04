@@ -25,7 +25,7 @@ const SanityPage = async ({ params, searchParams }: PageParamsType) => {
   const slug = `${uri}`
   const query = pageQuery
   const { title, blocks: blocksData } = (await getCmsPage(slug, query)) || {}
-  if (!title || !blocksData) return notFound()
+  if (!title) return notFound()
 
   return (
     <div className='grid w-10/12 mx-auto gap-6 my-6 px-3'>

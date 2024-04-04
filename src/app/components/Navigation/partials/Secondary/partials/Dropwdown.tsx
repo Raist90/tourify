@@ -1,22 +1,38 @@
 'use client'
-import { useAuthHandlers } from '@/helpers/clientHelpers'
+import { createClient } from '@/helpers/clientHelpers'
 import { Menu } from '@headlessui/react'
 import { ChevronDown } from 'lucide-react'
-import type { Session } from 'next-auth'
+import { useRouter } from 'next/navigation'
+
+type DropdownProps = {
+  session: boolean
+}
 
 /** @todo Fix these hardcoded values */
 const links = [
-  { href: '/account-settings', label: 'Account settings' },
+  { href: '/user/dashboard', label: 'Dashboard' },
   { href: '/support', label: 'Support' },
   { href: '/license', label: 'License' },
 ]
 
-export const Dropwdown = ({ session }: { session: Session | null }) => {
-  const { handleGithubLogin, handleLogout } = useAuthHandlers()
+export const Dropwdown = ({ session }: DropdownProps) => {
+  const { push, refresh } = useRouter()
+
+  const supabase = createClient()
+
+  /** @todo We should make `handleLogin` and `handleLogout` available in a `context` like `useGlobal` */
+  const handleLogin = () => {
+    push('/login')
+  }
+
+  /** @todo A litte bit ugly but seems to work right now. It would be nice to double-check it */
+  const handleLogout = async () => {
+    await supabase.auth.signOut().then(refresh)
+  }
 
   return (
     <div className='inline-flex gap-6'>
-      {!session && <button onClick={handleGithubLogin}>Sign in</button>}
+      {!session && <button onClick={handleLogin}>Sign in</button>}
 
       <Menu as='nav' className='relative'>
         {session && (

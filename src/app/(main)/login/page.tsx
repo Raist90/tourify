@@ -5,6 +5,7 @@ export default function LoginPage() {
     <form>
       <label htmlFor='email'>Email:</label>
       <input
+        autoComplete='email'
         className='text-black'
         id='email'
         name='email'
@@ -13,6 +14,7 @@ export default function LoginPage() {
       />
       <label htmlFor='password'>Password:</label>
       <input
+        autoComplete='current-password'
         className='text-black'
         id='password'
         name='password'

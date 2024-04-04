@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { NavigationType } from './NavigationProps'
 import { NavigationSecondaryComponent } from './partials'
+import { isArray } from '@/helpers/predicates'
 
 export const NavigationComponent = ({
   children,
@@ -18,7 +19,7 @@ export const NavigationPrimaryComponent = ({
   return (
     <nav>
       <ul className='inline-flex gap-6'>
-        {navigationItems &&
+        {isArray(navigationItems) &&
           navigationItems.map((item) => (
             <li key={item.id}>
               <Link tabIndex={0} href={item.href}>
@@ -32,16 +33,6 @@ export const NavigationPrimaryComponent = ({
 }
 
 export const Navigation = Object.assign(NavigationComponent, {
-  /** @description This is the `Primary` navigation of the Webapp
-   *
-   * @todo Data should come from `Sanity`
-   *
-   * @example <Navigation.Primary />
-   */
   Primary: NavigationPrimaryComponent,
-  /** @description This is the `Secondary` navigation of the Webapp
-   *
-   * @example <Navigation.Secondary />
-   */
   Secondary: NavigationSecondaryComponent,
 })

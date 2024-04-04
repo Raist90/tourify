@@ -1,7 +1,6 @@
 import { defineField } from 'sanity'
 
 export const navigationItemFields = [
-  /** @todo Do we really need `external` links? */
   defineField({
     name: 'navigationType',
     title: 'Navigation Type',
