@@ -16,6 +16,7 @@ export const sanityRouter = createTRPCRouter({
 
         return response
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error)
         return error
       }
@@ -35,6 +36,7 @@ export const sanityRouter = createTRPCRouter({
 
         return response
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error)
         return error
       }
