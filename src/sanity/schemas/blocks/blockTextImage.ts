@@ -1,7 +1,7 @@
+import { formatPreviewText } from '@/sanity/helpers'
 import { Image } from 'lucide-react'
 import { defineField } from 'sanity'
 import { blockImage, blockText } from '.'
-import { formatPreviewText } from '@/sanity/helpers'
 
 /** @description Since we are using the same fields as both blockImage and blockText, we can just import it from them */
 const externalFields = [...blockImage.fields, ...blockText.fields]

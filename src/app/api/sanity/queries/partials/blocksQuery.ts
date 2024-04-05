@@ -1,5 +1,5 @@
-import * as allBlocks from '../blocks'
 import { capitalize } from '@/helpers/serverHelpers/capitalize'
+import * as allBlocks from '../blocks'
 
 export const blocksQuery = Object.entries(allBlocks)
   .map(([blockQueryKey, blockQuery]) => {

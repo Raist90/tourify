@@ -1,6 +1,6 @@
-import { getNavigation } from '@/helpers/serverHelpers'
 import { Navigation } from '@/components'
 import { NavigationType } from '@/components/Navigation/NavigationProps'
+import { getNavigation } from '@/helpers/serverHelpers'
 
 export default async function MainLayout({
   children,

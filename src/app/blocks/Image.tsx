@@ -1,5 +1,5 @@
-import type { ImageBlock } from '../types'
 import { Media } from '../components'
+import type { ImageBlock } from '../types'
 
 export const Image = ({ caption, image }: ImageBlock) => {
   return (

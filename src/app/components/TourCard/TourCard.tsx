@@ -1,7 +1,7 @@
 import type { Tour } from '@/app/types'
 import Image from 'next/image'
-import { ActionsPanel } from './partials'
 import Link from 'next/link'
+import { ActionsPanel } from './partials'
 
 type TourCardProps = {
   tour: Tour

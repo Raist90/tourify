@@ -1,5 +1,5 @@
-import { sanityRouter, ticketmasterRouter } from './routes'
 import { createTRPCRouter } from '@/server/api/trpc'
+import { sanityRouter, ticketmasterRouter } from './routes'
 
 /**
  * This is the primary router for your server.

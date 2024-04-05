@@ -3,8 +3,8 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 
 import { apiVersion, dataset, projectId } from '@/sanity/env'
-import { schema } from '@/sanity/schema'
 import { defaultDocumentNode } from '@/sanity/helpers'
+import { schema } from '@/sanity/schema'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
 export default defineConfig({

@@ -1,4 +1,4 @@
-import { defineField } from "sanity";
+import { defineField } from 'sanity'
 
 export const blockImageFields = [
   defineField({
@@ -6,7 +6,7 @@ export const blockImageFields = [
     title: 'Alt tag',
     type: 'string',
     description: 'This is the alt text of the image',
-    validation: (Rule) => Rule.required()
+    validation: (Rule) => Rule.required(),
   }),
   defineField({
     name: 'quality',
@@ -18,7 +18,8 @@ export const blockImageFields = [
       direction: 'horizontal',
     },
     initialValue: '100',
-    description: 'This is the quality of the image. Choose 100 for full quality',
-    validation: (Rule) => Rule.required()
-  })
+    description:
+      'This is the quality of the image. Choose 100 for full quality',
+    validation: (Rule) => Rule.required(),
+  }),
 ]

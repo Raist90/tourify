@@ -1,5 +1,5 @@
-import { PortableText } from '@portabletext/react'
 import type { TextBlock } from '@/types/blocks'
+import { PortableText } from '@portabletext/react'
 
 export const Text = ({
   renderTitle,

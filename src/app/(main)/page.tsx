@@ -1,5 +1,5 @@
-import { getFeed, getHomepage } from '@/helpers/serverHelpers'
 import { Feed } from '@/components'
+import { getFeed, getHomepage } from '@/helpers/serverHelpers'
 import { FeedType } from '@/types'
 
 const HomePage = async () => {

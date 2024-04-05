@@ -1,4 +1,4 @@
-import { TypedObject } from "sanity"
+import { TypedObject } from 'sanity'
 
 export type BaseBlock = {
   id: string
@@ -11,7 +11,7 @@ type Image = {
   /** @description This is the alt text of the image */
   alt: string
   /** @description This is the quality of the image. Choose 100 for full quality */
-  quality: | 50 | 75 | 100
+  quality: 50 | 75 | 100
   /** @description This is the url of the image */
   src: string
 }
@@ -36,8 +36,10 @@ export type TextBlock = BaseBlock & {
   isTextSticky: boolean
 }
 
-export type TextImageBlock = BaseBlock & TextBlock & ImageBlock & {
-  /** @description This is the position of the image */
-  imagePosition: 'left' | 'right'
-  /** @todo We may add a `stickyText` boolean option here later */
-}
+export type TextImageBlock = BaseBlock &
+  TextBlock &
+  ImageBlock & {
+    /** @description This is the position of the image */
+    imagePosition: 'left' | 'right'
+    /** @todo We may add a `stickyText` boolean option here later */
+  }

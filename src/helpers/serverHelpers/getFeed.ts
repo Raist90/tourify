@@ -1,6 +1,6 @@
 import { feedQuery } from '@/api'
-import type { FeedType } from '@/types'
 import { api } from '@/trpc/server'
+import type { FeedType } from '@/types'
 
 export const getFeed = async () => {
   const feedData: Awaited<FeedType> = await api.feed.byQuery.query({

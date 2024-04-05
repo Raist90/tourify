@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
-import { navigationItemFields } from './navigationItemFields'
 import { navigationItem } from './navigationItem'
+import { navigationItemFields } from './navigationItemFields'
 
 /** @description This is similar to regular `navigationItem` but can contain a nested level of other `navigationItems` */
 export const parentNavigationItem = defineField({

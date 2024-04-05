@@ -1,5 +1,5 @@
-import type { SanityDocument } from 'sanity'
 import { CLIENT_ENV } from '@/app/env/client'
+import type { SanityDocument } from 'sanity'
 
 export const getPreviewUrl = (
   /** @todo Figure out how to type this */

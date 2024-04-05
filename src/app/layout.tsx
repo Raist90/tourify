@@ -1,7 +1,7 @@
+import { TRPCReactProvider } from '@/trpc/react'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
-import { TRPCReactProvider } from '@/trpc/react'
 import './globals.css'
 
 /** I don't know why but for some reason `Next` renders a fallback font when not setting `preload: false`

@@ -1,6 +1,6 @@
+import { formatPreviewText } from '@/sanity/helpers'
 import { CaseSensitive } from 'lucide-react'
 import { defineField } from 'sanity'
-import { formatPreviewText } from '@/sanity/helpers'
 
 const fields = [
   defineField({

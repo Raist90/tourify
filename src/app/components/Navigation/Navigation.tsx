@@ -1,7 +1,7 @@
+import { isArray } from '@/helpers/predicates'
 import Link from 'next/link'
 import type { NavigationType } from './NavigationProps'
 import { NavigationSecondaryComponent } from './partials'
-import { isArray } from '@/helpers/predicates'
 
 export const NavigationComponent = ({
   children,
