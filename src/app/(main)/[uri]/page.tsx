@@ -15,7 +15,10 @@ type PageParamsType = {
     | {}
 }
 
-/** @todo This should not be called `SanityPage` because it can also return the `Feed` component. Either change logic or rename it */
+/**
+ * @todo This should not be called `SanityPage` because it can also return the
+ *   `Feed` component. Either change logic or rename it
+ */
 const SanityPage = async ({ params, searchParams }: PageParamsType) => {
   // return `pageGetter` which early returns the `Feed` component, else will try to fetch a `Sanity` page
   if ('query' in searchParams)
@@ -28,7 +31,7 @@ const SanityPage = async ({ params, searchParams }: PageParamsType) => {
   if (!title) return notFound()
 
   return (
-    <div className='grid w-10/12 mx-auto gap-6 my-6 px-3'>
+    <div className='mx-auto my-6 grid w-10/12 gap-6 px-3'>
       <div>{title}</div>
 
       <div className='grid gap-3'>

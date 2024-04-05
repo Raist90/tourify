@@ -1,6 +1,10 @@
 import type { TextImageBlock } from '@/types/blocks'
 import { Text } from './Text'
-/** @description Here we rename the `Image` component to `ImageBlock` because `eslint` is stupid and thinks there's no `alt` tag even if the type of `image` is inferred correctly and actually contains an `alt` prop */
+/**
+ * Here we rename the `Image` component to `ImageBlock` because `eslint` is
+ * stupid and thinks there's no `alt` tag even if the type of `image` is
+ * inferred correctly and actually contains an `alt` prop
+ */
 import { Image as ImageBlock } from './Image'
 
 export const TextImage = ({
@@ -14,7 +18,10 @@ export const TextImage = ({
   type,
   id,
 }: TextImageBlock) => {
-  /** @todo I need to find a better solution to provide `ìds` here because I want them to be unique */
+  /**
+   * @todo I need to find a better solution to provide `ìds` here because I want
+   *   them to be unique
+   */
   const imageBlockProps = { caption, renderCaption, image, type, id }
   const textBlockProps = { renderTitle, title, text, type, id }
   const renderOrder = (renderIndex: string) => {
@@ -35,7 +42,7 @@ export const TextImage = ({
 
   return (
     <>
-      <section className='grid md:grid-cols-2 gap-6'>
+      <section className='grid gap-6 md:grid-cols-2'>
         {renderOrder(imagePosition)}
       </section>
     </>

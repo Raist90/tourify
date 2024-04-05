@@ -1,4 +1,4 @@
-/** @description Renders a `No results found` message */
+/** Renders a `No results found` message */
 export const FeedNotFound = () => {
   return (
     <div className='w-full text-center'>

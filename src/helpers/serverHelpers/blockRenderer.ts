@@ -13,7 +13,10 @@ export const blockRenderer = (blocks: Block[], modules: Modules) => {
   const filteredBlocks = blocks.filter((block) => Boolean(block.name))
 
   const components = filteredBlocks.map((block, index) => {
-    /** @description We try to match blocks data coming from the `cms` with block components and then we create elements and pass data to it as prop */
+    /**
+     * We try to match blocks data coming from the `cms` with block components
+     * and then we create elements and pass data to it as prop
+     */
     const singleModule = modules[block.name]
 
     if (!singleModule) return

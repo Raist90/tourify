@@ -10,10 +10,10 @@ export const Feed = async ({ header, keyword }: FeedProps) => {
 
   return (
     <>
-      <section className='text-center grid gap-6'>
+      <section className='grid gap-6 text-center'>
         <FeedHeader header={header} />
 
-        <SearchBar className='text-black inline-flex mx-auto' />
+        <SearchBar className='mx-auto inline-flex text-black' />
 
         {!tours.length && <FeedNotFound />}
 

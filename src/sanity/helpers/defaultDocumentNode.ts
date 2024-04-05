@@ -3,7 +3,7 @@ import Iframe from 'sanity-plugin-iframe-pane'
 import type { DefaultDocumentNodeResolver } from 'sanity/structure'
 import { getPreviewUrl } from '.'
 
-/** @description Here all the documents we want to preview */
+/** Here all the documents we want to preview */
 const allowedSchemaTypes = ['feed', 'page']
 
 export const defaultDocumentNode: DefaultDocumentNodeResolver = (

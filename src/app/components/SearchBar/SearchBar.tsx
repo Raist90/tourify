@@ -16,7 +16,7 @@ export const SearchBar = ({ ...styles }) => {
       <form onSubmit={handleSubmit}>
         <input
           autoFocus
-          className='h-14 max-w-sm md:w-96 pr-8 pl-5 rounded z-0 focus:shadow focus:outline-none'
+          className='z-0 h-14 max-w-sm rounded pl-5 pr-8 focus:shadow focus:outline-none md:w-96'
           type='text'
           placeholder='Search anything...'
         />

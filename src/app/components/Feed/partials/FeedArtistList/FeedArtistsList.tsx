@@ -56,7 +56,7 @@ export const FeedArtistsList = ({
   return (
     <>
       <section
-        className={`grid xl:grid-cols-4 gap-4 text-start grid-cols-1 md:grid-cols-3`}
+        className={`grid grid-cols-1 gap-4 text-start md:grid-cols-3 xl:grid-cols-4`}
       >
         {list &&
           list.length &&

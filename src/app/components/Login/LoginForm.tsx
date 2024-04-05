@@ -8,7 +8,7 @@ export const LoginForm = ({ login, signup }: LoginFormProps) => {
   const inputStyles = 'text-black w-full md:w-80 block p-2 mb-4 pl-4'
   const buttonStyles = 'border p-2'
   return (
-    <form className='md:mx-auto p-8 bg-black rounded-md'>
+    <form className='rounded-md bg-black p-8 md:mx-auto'>
       <input
         autoComplete='email'
         className={inputStyles}

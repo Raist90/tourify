@@ -3,7 +3,10 @@ import { defineField } from 'sanity'
 import { blockImageFields } from './partials'
 
 const fields = [
-  /** @todo For some reason this is not required even if I set a validation rule, try to fix this with a custom validation rule */
+  /**
+   * @todo For some reason this is not required even if I set a validation rule,
+   *   try to fix this with a custom validation rule
+   */
   defineField({
     name: 'image',
     title: 'Image',

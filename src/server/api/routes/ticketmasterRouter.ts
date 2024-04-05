@@ -7,7 +7,11 @@ import { z } from 'zod'
 const ticketMasterUrl = SERVER_ENV.TICKETMASTER_API
 const apiKey = SERVER_ENV.TICKETMASTER_API_KEY
 
-/** @description This is the TRPC router for the Ticketmaster API. You need to pass a `keyword` string to the `bySearch` query. If you don't need to pass a keyword then just use an empty string */
+/**
+ * This is the TRPC router for the Ticketmaster API. You need to pass a
+ * `keyword` string to the `bySearch` query. If you don't need to pass a keyword
+ * then just use an empty string
+ */
 export const ticketmasterRouter = createTRPCRouter({
   bySearch: publicProcedure
     .input(

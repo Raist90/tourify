@@ -45,9 +45,9 @@ export const TourCard = ({ tour }: TourCardProps) => {
         )}
 
         {/** @todo Put this on a separate `component` */}
-        <div className='relative w-full aspect-[16/9]'>
+        <div className='relative aspect-[16/9] w-full'>
           <Image
-            className='object-cover rounded-lg'
+            className='rounded-lg object-cover'
             src={tour.cover}
             alt={tour.name}
             fill
@@ -60,7 +60,7 @@ export const TourCard = ({ tour }: TourCardProps) => {
         <Link
           href={tour.url}
           target='_blank'
-          className='font-extrabold text-center hover:text-yellow-500 hover:underline'
+          className='text-center font-extrabold hover:text-yellow-500 hover:underline'
         >
           Buy it on Ticketmaster
         </Link>

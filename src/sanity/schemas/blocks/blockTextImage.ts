@@ -3,7 +3,10 @@ import { Image } from 'lucide-react'
 import { defineField } from 'sanity'
 import { blockImage, blockText } from '.'
 
-/** @description Since we are using the same fields as both blockImage and blockText, we can just import it from them */
+/**
+ * Since we are using the same fields as both blockImage and blockText, we can
+ * just import it from them
+ */
 const externalFields = [...blockImage.fields, ...blockText.fields]
 
 const fields = [

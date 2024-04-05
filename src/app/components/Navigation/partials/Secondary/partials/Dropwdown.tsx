@@ -20,12 +20,18 @@ export const Dropwdown = ({ session }: DropdownProps) => {
 
   const supabase = createClient()
 
-  /** @todo We should make `handleLogin` and `handleLogout` available in a `context` like `useGlobal` */
+  /**
+   * @todo We should make `handleLogin` and `handleLogout` available in a
+   *   `context` like `useGlobal`
+   */
   const handleLogin = () => {
     push('/login')
   }
 
-  /** @todo A litte bit ugly but seems to work right now. It would be nice to double-check it */
+  /**
+   * @todo A litte bit ugly but seems to work right now. It would be nice to
+   *   double-check it
+   */
   const handleLogout = async () => {
     await supabase.auth.signOut().then(refresh)
   }
@@ -40,7 +46,7 @@ export const Dropwdown = ({ session }: DropdownProps) => {
             <Menu.Button className='inline-flex gap-1'>
               My Account <ChevronDown />
             </Menu.Button>
-            <Menu.Items className='border border-neutral-400 bg-black absolute mt-3 w-52 left-0 flex flex-col items-baseline gap-1 p-4'>
+            <Menu.Items className='absolute left-0 mt-3 flex w-52 flex-col items-baseline gap-1 border border-neutral-400 bg-black p-4'>
               {links.map((link) => (
                 <Menu.Item key={link.href}>
                   {({ active }) => (

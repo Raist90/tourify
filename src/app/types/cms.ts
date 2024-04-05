@@ -14,7 +14,7 @@ export type HomepageType = {
   }
 }
 
-/** @todo `Name` will probably be a discriminated union lately  */
+/** @todo `Name` will probably be a discriminated union lately */
 export type Block = {
   name: 'Text'
   data: any

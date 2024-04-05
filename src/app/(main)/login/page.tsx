@@ -1,12 +1,11 @@
-import { login, signup } from './actions'
-
 import { LoginForm } from '@/app/components'
+import { login, signup } from './actions'
 
 export default function LoginPage() {
   return (
-    <div className='text-center w-fit px-4 md:p-8 mx-auto grid gap-8'>
+    <div className='mx-auto grid w-fit gap-8 px-4 text-center md:p-8'>
       <div>
-        <h2 className='text-2xl mb-4'>Login</h2>
+        <h2 className='mb-4 text-2xl'>Login</h2>
         <p>Login or Signup to unlock all Tourify&apos;s functionalities</p>
       </div>
 

@@ -1,8 +1,10 @@
 import type { TicketmasterResponseType, Tour } from '@/app/types'
 
-/** @description This function formats the response from Ticketmaster API
+/**
+ * This function formats the response from Ticketmaster API
  *
- * @example const formattedEvents = ticketmasterFormatter(events)
+ * @example
+ *   const formattedEvents = ticketmasterFormatter(events)
  */
 export const ticketmasterFormatter = (
   events: TicketmasterResponseType['_embedded']['events'],
