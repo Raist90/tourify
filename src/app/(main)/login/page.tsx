@@ -1,28 +1,16 @@
 import { login, signup } from './actions'
 
+import { LoginForm } from '@/app/components'
+
 export default function LoginPage() {
   return (
-    <form>
-      <label htmlFor='email'>Email:</label>
-      <input
-        autoComplete='email'
-        className='text-black'
-        id='email'
-        name='email'
-        type='email'
-        required
-      />
-      <label htmlFor='password'>Password:</label>
-      <input
-        autoComplete='current-password'
-        className='text-black'
-        id='password'
-        name='password'
-        type='password'
-        required
-      />
-      <button formAction={login}>Log in</button>
-      <button formAction={signup}>Sign up</button>
-    </form>
+    <div className='text-center w-fit px-4 md:p-8 mx-auto grid gap-8'>
+      <div>
+        <h2 className='text-2xl mb-4'>Login</h2>
+        <p>Login or Signup to unlock all Tourify&apos;s functionalities</p>
+      </div>
+
+      <LoginForm login={login} signup={signup} />
+    </div>
   )
 }
