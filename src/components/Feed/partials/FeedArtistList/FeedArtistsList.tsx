@@ -1,6 +1,6 @@
 'use client'
-import { Spinner } from '@/app/components/Spinner'
-import { TourCard } from '@/app/components/TourCard'
+import { Spinner } from '@/components/Spinner'
+import { TourCard } from '@/components/TourCard'
 import { api } from '@/trpc/react'
 import type { Tour } from '@/types'
 import { useCallback, useEffect, useState } from 'react'

@@ -1,5 +1,5 @@
 'use client'
-import type { Tour } from '@/app/types'
+import type { Tour } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ActionsPanel } from './partials'

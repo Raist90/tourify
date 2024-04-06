@@ -1,4 +1,4 @@
-import { feedQuery } from '@/api'
+import { feedQuery } from '@/app/api'
 import { api } from '@/trpc/server'
 import type { FeedType } from '@/types'
 

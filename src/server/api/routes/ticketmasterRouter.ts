@@ -1,7 +1,7 @@
-import { ticketmasterFormatter } from '@/app/api/ticketmaster/'
-import { SERVER_ENV } from '@/app/env/server'
-import { tourSchema, type TicketmasterResponseType } from '@/app/types'
+import { ticketmasterFormatter } from '@/app/api/ticketmaster'
+import { SERVER_ENV } from '@/env/server'
 import { createTRPCRouter, publicProcedure } from '@/server/api/trpc'
+import { tourSchema, type TicketmasterResponseType } from '@/types'
 import { z } from 'zod'
 
 const ticketMasterUrl = SERVER_ENV.TICKETMASTER_API

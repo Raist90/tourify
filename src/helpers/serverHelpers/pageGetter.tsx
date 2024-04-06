@@ -1,4 +1,4 @@
-import { Feed } from '@/app/components'
+import { Feed } from '@/components'
 
 /**
  * @todo This file is work in progress until I figure out how many different

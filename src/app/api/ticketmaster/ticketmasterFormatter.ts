@@ -1,4 +1,4 @@
-import type { TicketmasterResponseType, Tour } from '@/app/types'
+import type { TicketmasterResponseType, Tour } from '@/types'
 
 /**
  * This function formats the response from Ticketmaster API

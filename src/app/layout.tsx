@@ -1,9 +1,9 @@
-import { addTour, getProfile, getUserTours } from '@/api/supabase'
+import { addTour, getProfile, getUserTours } from '@/app/api/supabase'
 import { TRPCReactProvider } from '@/trpc/react'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
-import { DBActionsProvider } from './contexts'
+import { DBActionsProvider } from '../contexts'
 import './globals.css'
 
 /**

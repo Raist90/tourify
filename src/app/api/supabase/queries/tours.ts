@@ -1,12 +1,11 @@
 'use server'
-import type { Tour } from '@/app/types'
 import { createClient } from '@/helpers/serverHelpers'
 import { getUser } from '@/supabase/helpers'
+import type { Tour } from '@/types'
 import { redirect } from 'next/navigation'
 
-const supabase = createClient()
-
 export const addTour = async (userId: string, tour: Tour) => {
+  const supabase = createClient()
   const { data, error } = await supabase
     .from('Tours')
     .insert({
@@ -29,6 +28,7 @@ export const addTour = async (userId: string, tour: Tour) => {
 }
 
 export const getProfile = async () => {
+  const supabase = createClient()
   const { id } = await getUser()
 
   const { data, error } = await supabase
@@ -42,6 +42,7 @@ export const getProfile = async () => {
 }
 
 export const getUserTours = async () => {
+  const supabase = createClient()
   const { data, error } = await supabase.from('Tours').select('*')
 
   if (!data || error) redirect('/error')

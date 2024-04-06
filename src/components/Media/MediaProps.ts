@@ -1,4 +1,4 @@
-import type { ImageBlock } from '@/app/types'
+import type { ImageBlock } from '@/types'
 
 export type MediaProps = {
   image: ImageBlock['image']

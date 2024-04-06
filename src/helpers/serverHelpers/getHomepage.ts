@@ -1,4 +1,4 @@
-import { settingsQuery } from '@/api'
+import { settingsQuery } from '@/app/api'
 import { api } from '@/trpc/server'
 import type { HomepageType } from '@/types'
 

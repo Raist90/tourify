@@ -1,6 +1,6 @@
-import { pageQuery } from '@/api'
-import { SEARCH_ROUTE } from '@/app/constants'
+import { pageQuery } from '@/app/api'
 import * as blockComponents from '@/blocks'
+import { SEARCH_ROUTE } from '@/constants'
 import { blockRenderer, getCmsPage, pageGetter } from '@/helpers/serverHelpers'
 import { notFound } from 'next/navigation'
 

@@ -1,4 +1,4 @@
-import { CLIENT_ENV } from '@/app/env/client'
+import { CLIENT_ENV } from '@/env/client'
 import { type AppRouter } from '@/server/api/root'
 import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 import superjson from 'superjson'

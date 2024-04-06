@@ -1,4 +1,4 @@
-import { CLIENT_ENV } from '@/app/env/client'
+import { CLIENT_ENV } from '@/env/client'
 
 export const apiVersion = CLIENT_ENV.NEXT_PUBLIC_SANITY_API_VERSION
 

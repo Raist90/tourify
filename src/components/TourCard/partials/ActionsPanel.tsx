@@ -1,5 +1,5 @@
-import { useDBActions } from '@/app/contexts'
-import type { Tour } from '@/app/types'
+import { useDBActions } from '@/contexts'
+import type { Tour } from '@/types'
 import { BellPlus, Star } from 'lucide-react'
 
 type ActionsPanelProps = {

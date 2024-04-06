@@ -1,4 +1,4 @@
-import { CLIENT_ENV } from '@/app/env/client'
+import { CLIENT_ENV } from '@/env/client'
 import { createBrowserClient } from '@supabase/ssr'
 
 export function createClient() {

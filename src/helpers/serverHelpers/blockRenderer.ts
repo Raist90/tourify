@@ -1,4 +1,4 @@
-import { Block } from '@/app/types'
+import { Block } from '@/types'
 import { ComponentType, createElement } from 'react'
 
 /** @todo Make sure to properly type this when you add `types/blocks` */

@@ -1,6 +1,7 @@
 import { getUserTours } from '@/app/api/supabase'
-import { TourCard } from '@/app/components/TourCard'
+import { TourCard } from '@/components/TourCard'
 import { getUser } from '@/supabase/helpers'
+import type { Tour } from '@/types'
 
 const UserPage = async () => {
   const user = await getUser()
@@ -12,7 +13,7 @@ const UserPage = async () => {
    * @todo Format this data with a dedicated formatter and parse it with `Zod`.
    *   This should happen directly inside `getUserTours` function
    */
-  const tours = await getUserTours()
+  const tours = (await getUserTours()) as Tour[]
 
   /**
    * @todo Create a `Dashboard` component. It will be probably a good idea to
