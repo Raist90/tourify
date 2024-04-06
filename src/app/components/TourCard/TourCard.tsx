@@ -1,3 +1,4 @@
+'use client'
 import type { Tour } from '@/app/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -66,7 +67,7 @@ export const TourCard = ({ tour }: TourCardProps) => {
         </Link>
       </div>
 
-      <ActionsPanel />
+      <ActionsPanel tour={tour} />
 
       {tour.featured && (
         <span className='text-xs font-bold text-yellow-500'>Featured</span>
