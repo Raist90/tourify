@@ -1,4 +1,4 @@
-import { addTour, getProfile, getUserTours } from '@/app/api/supabase'
+import { addTour, getProfile } from '@/app/api/supabase'
 import { TRPCReactProvider } from '@/trpc/react'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
@@ -28,7 +28,6 @@ export const metadata: Metadata = {
 const actions = {
   addTour,
   getProfile,
-  getUserTours,
 }
 
 export default function RootLayout({
