@@ -1,11 +1,12 @@
 'use client'
 import type { Tour } from '@/types'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { createContext, useContext } from 'react'
 
 type Actions = {
   getProfile: () => Promise<any[]>
   addTour: (userId: string, tour: Tour) => Promise<any[]>
-  getUserTours: () => Promise<{ tours: any }[]>
+  getUserTours: (supabase: SupabaseClient) => Promise<{ tours: any }[]>
 }
 
 const DBActionsContext = createContext<Actions | null>(null)
