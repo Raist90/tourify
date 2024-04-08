@@ -1,10 +1,12 @@
 import { getUserTours } from '@/app/api/supabase'
 import { TourCard } from '@/components/TourCard'
+import { createClient } from '@/helpers/serverHelpers'
 import { getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
 
 const UserPage = async () => {
-  const user = await getUser()
+  const supabase = createClient()
+  const user = await getUser(supabase)
 
   /** @todo We will use this `id` to access `tours` table */
   const { id, email } = user

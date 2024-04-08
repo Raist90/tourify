@@ -1,9 +1,7 @@
-import { createClient } from '@/helpers/serverHelpers'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 
-export const getUser = async () => {
-  const supabase = createClient()
-
+export const getUser = async (supabase: SupabaseClient) => {
   const {
     data: { user },
     error,

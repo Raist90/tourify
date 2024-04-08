@@ -22,6 +22,7 @@ export const addTour = async (userId: string, tour: Tour) => {
     })
     .select()
 
+  /** @todo We should probably do something different here */
   if (error) redirect('/error')
 
   return data
@@ -29,13 +30,14 @@ export const addTour = async (userId: string, tour: Tour) => {
 
 export const getProfile = async () => {
   const supabase = createClient()
-  const { id } = await getUser()
+  const { id } = await getUser(supabase)
 
   const { data, error } = await supabase
     .from('Profiles')
     .select('*')
     .eq('id', id)
 
+  /** @todo We should probably do something else here */
   if (error) redirect('/error')
 
   return data
@@ -45,6 +47,7 @@ export const getUserTours = async () => {
   const supabase = createClient()
   const { data, error } = await supabase.from('Tours').select('*')
 
+  /** @todo We should probably do something else here */
   if (!data || error) redirect('/error')
 
   return data
