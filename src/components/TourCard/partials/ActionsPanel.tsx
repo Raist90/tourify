@@ -1,3 +1,4 @@
+'use client'
 import { useDBActions } from '@/contexts'
 import type { Tour } from '@/types'
 import { BellPlus, Star } from 'lucide-react'

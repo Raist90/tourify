@@ -25,7 +25,12 @@ export const FeedArtistsList = ({
       keyword: keyword || '',
       page,
     },
-    // we disable it initially because first results will be fetched serverside, then we store the next page result clientside and we render it only when the user scrolls to the bottom of the page, then we load next page in advance. In this way we get rid of loading times entirely
+    /**
+     * We disable it initially because first results will be fetched serverside,
+     * then we store the next page result clientside and we render it only when
+     * the user scrolls to the bottom of the page, then we load next page in
+     * advance. In this way we get rid of loading times entirely
+     */
     { enabled: false },
   )
   const { tours: loadedTours } = data || {}
