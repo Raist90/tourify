@@ -22,7 +22,7 @@ export const NavigationPrimaryComponent = ({
         {isArray(navigationItems) &&
           navigationItems.map((item) => (
             <li key={item.id}>
-              <Link tabIndex={0} href={item.href}>
+              <Link tabIndex={0} href={`/${item.href}`}>
                 {item.label}
               </Link>
             </li>
