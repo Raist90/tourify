@@ -2,6 +2,7 @@
 import { createClient } from '@/helpers/serverHelpers'
 import { getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
+import type { SupabaseClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 
 export const addTour = async (userId: string, tour: Tour) => {
@@ -43,8 +44,7 @@ export const getProfile = async () => {
   return data
 }
 
-export const getUserTours = async () => {
-  const supabase = createClient()
+export const getUserTours = async (supabase: SupabaseClient) => {
   const { data, error } = await supabase.from('Tours').select('*')
 
   /** @todo We should probably do something else here */

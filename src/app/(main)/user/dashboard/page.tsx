@@ -15,7 +15,7 @@ const UserPage = async () => {
    * @todo Format this data with a dedicated formatter and parse it with `Zod`.
    *   This should happen directly inside `getUserTours` function
    */
-  const tours = (await getUserTours()) as Tour[]
+  const tours = (await getUserTours(supabase)) as Tour[]
 
   /**
    * @todo Create a `Dashboard` component. It will be probably a good idea to
