@@ -29,6 +29,20 @@ export const addTour = async (userId: string, tour: Tour) => {
   return data
 }
 
+export const deleteTour = async (tour: Tour) => {
+  const supabase = createClient()
+  const { data, error } = await supabase
+    .from('Tours')
+    .delete()
+    .eq('id', tour.id)
+    .select()
+
+  /** @todo We should probably do something different here */
+  if (error) redirect('/error')
+
+  return data
+}
+
 export const getProfile = async () => {
   const supabase = createClient()
   const { id } = await getUser(supabase)

@@ -1,21 +1,15 @@
-'use client'
-import { useDBActions } from '@/contexts'
 import type { Tour } from '@/types'
+import clsx from 'clsx'
 import { BellPlus, Star } from 'lucide-react'
 
 type ActionsPanelProps = {
+  isActive: boolean
+  handleClick: () => Promise<void>
   tour: Tour
 }
 
-export const ActionsPanel = ({ tour }: ActionsPanelProps) => {
-  const actions = useDBActions()
-  if (!actions) return
-  const { addTour, getProfile } = actions
-  const handleClick = async () => {
-    const user = await getProfile()
-    const userId = user[0].id
-    addTour(userId, tour)
-  }
+/** @todo These actions should be available only if user is logged in */
+export const ActionsPanel = ({ isActive, handleClick }: ActionsPanelProps) => {
   return (
     <div className='mx-auto grid grid-cols-2 gap-2'>
       <button
@@ -23,7 +17,9 @@ export const ActionsPanel = ({ tour }: ActionsPanelProps) => {
         onClick={handleClick}
         title='Add this to favorites'
       >
-        <Star className='hover:text-red-500' />
+        <Star
+          className={clsx(isActive && 'text-red-500', 'hover:text-red-500')}
+        />
       </button>
       <button tabIndex={-1} title='Notify me about this'>
         <BellPlus className='hover:text-yellow-500' />

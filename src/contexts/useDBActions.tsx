@@ -2,9 +2,12 @@
 import type { Tour } from '@/types'
 import { createContext, useContext } from 'react'
 
+/** @todo Maybe it's best if I rename this */
 type Actions = {
   getProfile: () => Promise<any[]>
   addTour: (userId: string, tour: Tour) => Promise<any[]>
+  userToursIds: string[]
+  deleteTour: (tour: Tour) => Promise<any[]>
 }
 
 const DBActionsContext = createContext<Actions | null>(null)

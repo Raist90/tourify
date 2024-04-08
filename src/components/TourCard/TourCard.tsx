@@ -1,7 +1,9 @@
 'use client'
+import { useDBActions } from '@/contexts'
 import type { Tour } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { ActionsPanel } from './partials'
 
 type TourCardProps = {
@@ -9,6 +11,29 @@ type TourCardProps = {
 }
 
 export const TourCard = ({ tour }: TourCardProps) => {
+  let [isActive, setIsActive] = useState(false)
+
+  const actions = useDBActions()
+  const { addTour, getProfile, deleteTour, userToursIds } = actions!
+
+  const handleClick = async () => {
+    if (!isActive) {
+      const user = await getProfile()
+      const userId = user[0].id
+      addTour(userId, tour)
+      setIsActive(true)
+    } else {
+      deleteTour(tour)
+      setIsActive(false)
+    }
+  }
+
+  useEffect(() => {
+    if (userToursIds.includes(tour.id)) {
+      setIsActive(true)
+    }
+  }, [tour.id, userToursIds])
+
   return (
     <article
       className='grid gap-2 self-end hover:m-[-1px] hover:border'
@@ -67,7 +92,7 @@ export const TourCard = ({ tour }: TourCardProps) => {
         </Link>
       </div>
 
-      <ActionsPanel tour={tour} />
+      <ActionsPanel isActive={isActive} handleClick={handleClick} tour={tour} />
 
       {tour.featured && (
         <span className='text-xs font-bold text-yellow-500'>Featured</span>

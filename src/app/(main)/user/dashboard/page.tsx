@@ -1,5 +1,11 @@
-import { getUserTours } from '@/app/api/supabase'
+import {
+  addTour,
+  deleteTour,
+  getProfile,
+  getUserTours,
+} from '@/app/api/supabase'
 import { TourCard } from '@/components/TourCard'
+import { DBActionsProvider } from '@/contexts'
 import { createClient } from '@/helpers/serverHelpers'
 import { getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
@@ -8,8 +14,17 @@ const UserPage = async () => {
   const supabase = createClient()
   const user = await getUser(supabase)
 
-  /** @todo We will use this `id` to access `tours` table */
+  const userTours = await getUserTours(supabase)
+  const userToursIds = userTours.map((tour) => tour.id)
+
   const { id, email } = user
+
+  const actions = {
+    addTour,
+    getProfile,
+    userToursIds,
+    deleteTour,
+  }
 
   /**
    * @todo Format this data with a dedicated formatter and parse it with `Zod`.
@@ -23,17 +38,19 @@ const UserPage = async () => {
    *   `UserFeedList` always inside `User` component list
    */
   return (
-    <section>
-      <div>User Dashboard</div>
-      <p>{email}</p>
-      <div
-        className={`grid grid-cols-1 gap-4 text-start md:grid-cols-3 xl:grid-cols-4`}
-      >
-        {tours.map((tour) => (
-          <TourCard key={tour.id} tour={tour} />
-        ))}
-      </div>
-    </section>
+    <DBActionsProvider actions={actions}>
+      <section>
+        <div>User Dashboard</div>
+        <p>{email}</p>
+        <div
+          className={`grid grid-cols-1 gap-4 text-start md:grid-cols-3 xl:grid-cols-4`}
+        >
+          {tours.map((tour) => (
+            <TourCard key={tour.id} tour={tour} />
+          ))}
+        </div>
+      </section>
+    </DBActionsProvider>
   )
 }
 
