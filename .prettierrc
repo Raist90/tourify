@@ -9,5 +9,6 @@
     "prettier-plugin-organize-imports",
     "prettier-plugin-jsdoc",
     "prettier-plugin-tailwindcss"
-  ]
+  ],
+  "organizeImportsSkipDestructiveCodeActions": true
 }
