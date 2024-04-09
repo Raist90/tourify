@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 export function createClient() {
   const cookieStore = cookies()
 
-  return createServerClient(
+  const client = createServerClient(
     CLIENT_ENV.NEXT_PUBLIC_SUPABASE_URL,
     CLIENT_ENV.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     {
@@ -34,4 +34,8 @@ export function createClient() {
       },
     },
   )
+
+  client.auth.getUser()
+
+  return client
 }
