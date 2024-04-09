@@ -58,7 +58,8 @@ export const getProfile = async () => {
   return data
 }
 
-export const getUserTours = async (supabase: SupabaseClient) => {
+export const getUserTours = async () => {
+  const supabase = createClient()
   const { data, error } = await supabase.from('Tours').select('*')
 
   /** @todo We should probably do something else here */

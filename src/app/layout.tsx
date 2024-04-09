@@ -36,8 +36,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const supabase = createClient()
-  const userTours = await getUserTours(supabase)
+  const userTours = await getUserTours()
   const userToursIds = userTours.map((tour) => tour.id)
 
   /**
