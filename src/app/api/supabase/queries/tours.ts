@@ -2,7 +2,6 @@
 import { createClient } from '@/helpers/serverHelpers'
 import { getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
-import type { SupabaseClient } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 
 export const addTour = async (userId: string, tour: Tour) => {
