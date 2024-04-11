@@ -1,29 +1,19 @@
 import { pageQuery } from '@/app/api'
 import * as blockComponents from '@/blocks'
-import { SEARCH_ROUTE } from '@/constants'
-import { blockRenderer, getCmsPage, pageGetter } from '@/helpers/serverHelpers'
+import { blockRenderer, getCmsPage } from '@/helpers/serverHelpers'
 import { notFound } from 'next/navigation'
 
 type PageParamsType = {
   params: {
     uri: string
   }
-  searchParams:
-    | {
-        query: string
-      }
-    | {}
 }
 
 /**
  * @todo This should not be called `SanityPage` because it can also return the
  *   `Feed` component. Either change logic or rename it
  */
-const SanityPage = async ({ params, searchParams }: PageParamsType) => {
-  // return `pageGetter` which early returns the `Feed` component, else will try to fetch a `Sanity` page
-  if ('query' in searchParams)
-    return pageGetter(SEARCH_ROUTE, searchParams.query)
-
+const SanityPage = async ({ params }: PageParamsType) => {
   const { uri } = params
   const slug = `${uri}`
   const query = pageQuery
