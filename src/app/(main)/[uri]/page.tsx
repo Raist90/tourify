@@ -1,12 +1,24 @@
 import { pageQuery } from '@/app/api'
 import * as blockComponents from '@/blocks'
 import { blockRenderer, getCmsPage } from '@/helpers/serverHelpers'
+import { client } from '@/sanity/lib'
 import { notFound } from 'next/navigation'
 
 type PageParamsType = {
   params: {
     uri: string
   }
+}
+
+/** @todo It would be nice to refactor this */
+export async function generateStaticParams() {
+  const sanityClient = client
+  const query = `*[_type == 'page']{'slug': slug.current}`
+  const pages: Awaited<{ slug: string }[]> = await sanityClient.fetch(query)
+  const slugs = pages.map((page) => ({
+    uri: page.slug,
+  }))
+  return slugs
 }
 
 /**
