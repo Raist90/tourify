@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
-import { redirect } from 'next/navigation'
+import { dbErrorHandler } from './dbErrorHandler'
 
 export const getUser = async (supabase: SupabaseClient) => {
   const {
@@ -11,8 +11,8 @@ export const getUser = async (supabase: SupabaseClient) => {
    * @todo What should we do in this case? Maybe render a component that
    *   explains you need to login in order to access this page
    */
-  if (error || !user) {
-    redirect('/error')
+  if (error) {
+    dbErrorHandler(error)
   }
 
   return user

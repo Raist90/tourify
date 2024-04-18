@@ -1,6 +1,6 @@
 'use server'
 import { createClient } from '@/helpers/serverHelpers'
-import { getUser } from '@/supabase/helpers'
+import { dbErrorHandler, getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
 import { redirect } from 'next/navigation'
 
@@ -44,22 +44,48 @@ export const deleteTour = async (tour: Tour) => {
 
 export const getProfile = async () => {
   const supabase = createClient()
-  const { id } = await getUser(supabase)
+  const { id } = (await getUser(supabase)) || {}
 
+  let profile
+
+  if (id) {
+    const { data, error } = await supabase
+      .from('Profiles')
+      .select('*')
+      .eq('id', id)
+
+    /**
+     * @todo We should probably do something else here. Ideally the
+     *   dbErrorHandler should return the empty array here
+     */
+    if (error) dbErrorHandler(error)
+
+    /** @todo I need to parse this data to avoid using the exclamation point */
+    profile = data!
+  } else profile = []
+
+  return profile
+}
+
+export const getUserTours = async (userId: string) => {
+  const supabase = createClient()
   const { data, error } = await supabase
-    .from('Profiles')
+    .from('Tours')
     .select('*')
-    .eq('id', id)
+    .eq('user_id', userId)
 
   /** @todo We should probably do something else here */
-  if (error) redirect('/error')
+  if (error) dbErrorHandler(error, '/error')
 
   return data
 }
 
-export const getUserTours = async () => {
+export const addProfile = async (id: string, email: string) => {
   const supabase = createClient()
-  const { data, error } = await supabase.from('Tours').select('*')
+  const { data, error } = await supabase.from('Profiles').upsert({
+    id: id,
+    email: email,
+  })
 
   /** @todo We should probably do something else here */
   if (!data || error) redirect('/error')

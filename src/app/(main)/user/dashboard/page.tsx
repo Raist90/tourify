@@ -1,20 +1,33 @@
 import { getUserTours } from '@/app/api/supabase'
 import { TourCard } from '@/components/TourCard'
 import { createClient } from '@/helpers/serverHelpers'
-import { getUser } from '@/supabase/helpers'
+import { getSession, getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
+import { redirect } from 'next/navigation'
 
 const UserPage = async () => {
-  const supabase = createClient()
-  const user = await getUser(supabase)
+  const session = await getSession()
 
-  const { id, email } = user
+  /**
+   * @todo This will do for now but better to show a component that says you
+   *   should be logged in to use the dashboard
+   */
+  if (!session) {
+    redirect('/login')
+  }
+
+  const supabase = createClient()
+  const { id, email } = (await getUser(supabase)) || {}
+
+  let tours: Tour[]
 
   /**
    * @todo Format this data with a dedicated formatter and parse it with `Zod`.
    *   This should happen directly inside `getUserTours` function
    */
-  const tours = (await getUserTours()) as Tour[]
+  if (id) {
+    tours = (await getUserTours(id)) as Tour[]
+  } else tours = []
 
   /**
    * @todo Create a `Dashboard` component. It will be probably a good idea to

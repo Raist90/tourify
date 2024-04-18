@@ -1,5 +1,6 @@
 import { DBActionsProvider } from '@/contexts'
 import { createClient } from '@/helpers/serverHelpers'
+import { getSession, getUser } from '@/supabase/helpers'
 import { TRPCReactProvider } from '@/trpc/react'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
@@ -36,8 +37,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const userTours = await getUserTours()
-  const userToursIds = userTours.map((tour) => tour.id)
+  /**
+   * @todo This is not working, we should get the `userId` and use it to fetch
+   *   tours
+   */
+  const session = await getSession()
+
+  let userToursIds
+  if (session) {
+    const supabase = createClient()
+    const { id } = (await getUser(supabase)) || {}
+
+    if (id) {
+      const userTours = await getUserTours(id)
+      userToursIds = userTours?.map((tour) => tour.id)
+    } else userToursIds = []
+  }
 
   /**
    * @todo Maybe put this into a `generateDBActions` function and move it
@@ -46,8 +61,9 @@ export default async function RootLayout({
   const actions = {
     addTour,
     getProfile,
-    userToursIds,
+    userToursIds: userToursIds || [],
     deleteTour,
+    session,
   }
   return (
     <html lang='en'>

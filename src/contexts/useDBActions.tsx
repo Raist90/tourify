@@ -8,6 +8,7 @@ type Actions = {
   addTour: (userId: string, tour: Tour) => Promise<any[]>
   userToursIds: string[]
   deleteTour: (tour: Tour) => Promise<any[]>
+  session: boolean
 }
 
 const DBActionsContext = createContext<Actions | null>(null)

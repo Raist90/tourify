@@ -1,5 +1,6 @@
 'use client'
 import { useDBActions } from '@/contexts'
+import { isArray } from '@/helpers/predicates'
 import type { Tour } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -29,7 +30,7 @@ export const TourCard = ({ tour }: TourCardProps) => {
   }
 
   useEffect(() => {
-    if (userToursIds.includes(tour.id)) {
+    if (isArray(userToursIds) && userToursIds.includes(tour.id)) {
       setIsActive(true)
     }
   }, [tour.id, userToursIds])
