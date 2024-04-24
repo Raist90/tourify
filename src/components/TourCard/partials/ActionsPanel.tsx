@@ -12,27 +12,28 @@ type ActionsPanelProps = {
 }
 
 const getToastProps = (session: boolean, isActive: boolean) => {
-  let props
-  /** @todo Ugly as hell. Maybe I should use a switch here */
-  if (!session) {
-    props = {
+  const toastOptionsList = {
+    noSession: {
       message: 'Login to use this functionality',
       type: 'warning',
-    } as const
-    return props
-  }
-  if (session && isActive) {
-    props = {
+    } as const,
+    addToList: {
       message: 'Event successfully added to your wishlist',
       type: 'success',
-    } as const
-    return props
-  } else {
-    props = {
+    } as const,
+    removeFromList: {
       message: 'Event successfully removed from your wishlist',
       type: 'success',
-    } as const
-    return props
+    } as const,
+  }
+
+  switch (true) {
+    case !session:
+      return toastOptionsList['noSession']
+    case session && isActive:
+      return toastOptionsList['addToList']
+    default:
+      return toastOptionsList['removeFromList']
   }
 }
 
