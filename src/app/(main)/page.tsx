@@ -1,4 +1,4 @@
-import { Feed } from '@/components'
+import { Feed } from '@/components/Feed'
 import { getFeed, getHomepage } from '@/helpers/serverHelpers'
 import { FeedType } from '@/types'
 

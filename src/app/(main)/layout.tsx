@@ -1,4 +1,4 @@
-import { Navigation } from '@/components'
+import { Navigation } from '@/components/Navigation'
 import { NavigationType } from '@/components/Navigation/NavigationProps'
 import { getNavigation } from '@/helpers/serverHelpers'
 

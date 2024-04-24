@@ -1,4 +1,4 @@
-import { Feed } from '@/components'
+import { Feed } from '@/components/Feed'
 
 type PageParamsType = {
   searchParams: {
