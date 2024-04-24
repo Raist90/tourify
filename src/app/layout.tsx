@@ -1,11 +1,9 @@
 import { DBActionsProvider } from '@/contexts'
-import { createClient } from '@/helpers/serverHelpers'
-import { getSession, getUser } from '@/supabase/helpers'
+import { generateSupabaseActions } from '@/supabase/helpers'
 import { TRPCReactProvider } from '@/trpc/react'
 import type { Metadata } from 'next'
 import { DM_Mono } from 'next/font/google'
 import { headers } from 'next/headers'
-import { addTour, deleteTour, getProfile, getUserTours } from './api/supabase'
 import './globals.css'
 
 /**
@@ -37,34 +35,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  /**
-   * @todo This is not working, we should get the `userId` and use it to fetch
-   *   tours
-   */
-  const session = await getSession()
+  const actions = await generateSupabaseActions()
 
-  let userToursIds
-  if (session) {
-    const supabase = createClient()
-    const { id } = (await getUser(supabase)) || {}
-
-    if (id) {
-      const userTours = await getUserTours(id)
-      userToursIds = userTours?.map((tour) => tour.id)
-    } else userToursIds = []
-  }
-
-  /**
-   * @todo Maybe put this into a `generateDBActions` function and move it
-   *   elsewhere
-   */
-  const actions = {
-    addTour,
-    getProfile,
-    userToursIds: userToursIds || [],
-    deleteTour,
-    session,
-  }
   return (
     <html lang='en'>
       <body className={`${dmMono.className} bg-neutral-900 text-white`}>
