@@ -1,5 +1,6 @@
+'use server'
 import { getUserTours } from '@/app/api/supabase'
-import { TourCard } from '@/components/TourCard'
+import { Dashboard } from '@/components/Dashboard'
 import { createClient } from '@/helpers/serverHelpers'
 import { getSession, getUser } from '@/supabase/helpers'
 import type { Tour } from '@/types'
@@ -34,19 +35,7 @@ const UserPage = async () => {
    *   nest User components inside a `User` folder. Also, create a
    *   `UserFeedList` always inside `User` component list
    */
-  return (
-    <section>
-      <div>User Dashboard</div>
-      <p>{email}</p>
-      <div
-        className={`grid grid-cols-1 gap-4 text-start md:grid-cols-3 xl:grid-cols-4`}
-      >
-        {tours.map((tour) => (
-          <TourCard key={tour.id} tour={tour} />
-        ))}
-      </div>
-    </section>
-  )
+  return <Dashboard email={email} tours={tours} />
 }
 
 export default UserPage
